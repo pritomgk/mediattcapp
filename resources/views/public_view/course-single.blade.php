@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <p>
-                        <img src="{{ asset('pv_assets/images/course_1.jpg') }}" alt="Image" class="img-fluid">
+                        <img src="{{ asset('storage/courses/'.$single_course->content) }}" alt="Image" class="img-fluid">
                     </p>
                 </div>
                 <div class="col-lg-5 ml-auto align-self-center">

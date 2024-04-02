@@ -27,7 +27,7 @@
     
         <!-- Favicon -->
         <link rel="shortcut icon" href="{{ asset('admin_assets/img/favicon.ico') }}" type="image/x-icon">
-        
+
     </head>
 
     <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -142,11 +142,11 @@
                             <h3 class="footer-heading"><span>Our Campus</span></h3>
                             <ul class="list-unstyled">
                                 <li><a href="#">Acedemic</a></li>
-                                <li><a href="#">News</a></li>
+                                {{-- <li><a href="#">News</a></li>
                                 <li><a href="#">Our Interns</a></li>
                                 <li><a href="#">Our Leadership</a></li>
                                 <li><a href="#">Careers</a></li>
-                                <li><a href="#">Human Resources</a></li>
+                                <li><a href="#">Human Resources</a></li> --}}
                             </ul>
                         </div>
                         <div class="col-lg-3">
