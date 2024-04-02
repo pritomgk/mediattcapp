@@ -70,11 +70,17 @@ class LoginoutController extends Controller
             }
         }else{
 
-            return redirect('admin_panel/login')->with('error', 'Incorrect Email or Password..!');
+            return redirect(route('login'))->with('error', 'Incorrect Email or Password..!');
 
         }
 
     }
+    
+    public function logout(){
+        session()->flush();
+        return redirect(route('home'));
+    }
+    
 
 
 

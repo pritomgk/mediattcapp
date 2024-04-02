@@ -26,3 +26,22 @@ Route::get('/login', function () {
 
 Route::post('/check_login', [LoginoutController::class, 'check_login']
 )->name('check_login');
+
+Route::get('/logout', [LoginoutController::class, 'logout']
+)->name('logout');
+
+
+// admin_panel routes
+
+Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
+    
+    Route::get('/teacher/dashboard', function () {
+        return view('admin_view.teacher.dashboard');
+    })->name('teacher_dashboard');
+
+
+
+});
+
+
+
