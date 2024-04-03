@@ -106,6 +106,17 @@ class PubController extends Controller
         $student->document = $docment_name;
         $student->save();
 
+        $subject = 'New application received.';
+
+        $body = '
+        Hello Sir, <br><br>
+        New application was received. Please check your admission application dashboard. <br> <br>
+        Thank you <br>
+        Media TTC.
+        ';
+
+        Mail::to('mttijamalpur@gmail.com')->send(new SendMail($subject, $body));
+
         return redirect()->back()->with('success', 'Application Successfully Submited..!');
 
     }
