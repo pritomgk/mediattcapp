@@ -45,7 +45,7 @@ Media TTC - Log in
                     </div>
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" name="rememberme" role="switch" id="rememberme" checked>
-                      <label class="form-check-label" for="rememberme">Checked switch checkbox input</label>
+                      <label class="form-check-label" for="rememberme">Remeber Me</label>
                     </div>
                     <div class="col-md-12 form-group">
                         <input type="submit" value="Log In" class="form-control form-control-lg bg-primary text-white" style="cursor: pointer;" />
