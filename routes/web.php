@@ -21,8 +21,16 @@ Route::get('/all_courses', [CourseController::class, 'all_courses']
 Route::get('/contact_us', [PubController::class, 'contact_us']
 )->name('contact_us');
 
-Route::get('/contact_message', [PubController::class, 'contact_message']
+Route::post('/contact_message', [PubController::class, 'contact_message']
 )->name('contact_message');
+
+Route::get('/admission', [PubController::class, 'admission']
+)->name('admission');
+
+Route::post('/admission_apply', [PubController::class, 'admission_apply']
+)->name('admission_apply');
+
+// login logout 
 
 Route::get('/login', function () {
     return view('public_view.login');
@@ -33,6 +41,7 @@ Route::post('/check_login', [LoginoutController::class, 'check_login']
 
 Route::get('/logout', [LoginoutController::class, 'logout']
 )->name('logout');
+
 
 
 // admin_panel routes

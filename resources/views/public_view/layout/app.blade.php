@@ -106,7 +106,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="admissions.php" class="nav-link text-left">Admissions</a>
+                                        <a href="{{ route('admission') }}" class="nav-link text-left">Admissions</a>
                                     </li>
                                     <li>
                                         <a href="courses.php" class="nav-link text-left">Result</a>
