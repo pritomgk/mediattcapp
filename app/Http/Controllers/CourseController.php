@@ -22,11 +22,6 @@ class CourseController extends Controller
 
     }
 
-    public function header_courses(){
-
-        $header_courses = course::all();
-        return view('public_view.app', compact('header_courses'));
-
-    }
-
 }
+
+

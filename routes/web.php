@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LoginoutController;
+use App\Http\Controllers\PubController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,8 +18,11 @@ Route::get('/single_course/{course_id}', [CourseController::class, 'single_cours
 Route::get('/all_courses', [CourseController::class, 'all_courses']
 )->name('all_courses');
 
-Route::get('/header_courses', [CourseController::class, 'header_courses']
-)->name('header_courses');
+Route::get('/contact_us', [PubController::class, 'contact_us']
+)->name('contact_us');
+
+Route::get('/contact_message', [PubController::class, 'contact_message']
+)->name('contact_message');
 
 Route::get('/login', function () {
     return view('public_view.login');

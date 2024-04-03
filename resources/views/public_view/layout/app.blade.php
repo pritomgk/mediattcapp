@@ -112,7 +112,7 @@
                                         <a href="courses.php" class="nav-link text-left">Result</a>
                                     </li>
                                     <li>
-                                        <a href="contact.html" class="nav-link text-left">Contact</a>
+                                        <a href="{{ route('contact_us') }}" class="nav-link text-left">Contact</a>
                                     </li>
                                 </ul>
                             </nav>
