@@ -48,6 +48,20 @@ Route::get('/logout', [LoginoutController::class, 'logout']
 
 Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
     
+    Route::get('/', function () {
+        if (session()->get('role_id') == 1) {
+            return redirect()->route('admin_dashboard');
+        }elseif (session()->get('role_id') == 2) {
+            return redirect()->route('teacher_dashboard');
+        }else{
+            return redirect()->route('home');
+        }
+    })->name('dashboard');
+
+    Route::get('/admin/dashboard', function () {
+        return view('admin_view.admin.dashboard');
+    })->name('admin_dashboard');
+
     Route::get('/teacher/dashboard', function () {
         return view('admin_view.teacher.dashboard');
     })->name('teacher_dashboard');
