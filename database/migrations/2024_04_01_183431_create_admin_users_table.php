@@ -22,6 +22,8 @@ return new class extends Migration
             $table->unsignedBigInteger('role_id')->default(2);
             $table->foreign('role_id')->references('role_id')->on('roles');
             $table->tinyInteger('status')->default(0);
+            $table->string('verify_token')->nullable();
+            $table->tinyInteger('email_verified')->default(0);
             $table->string('password');
             $table->timestamp('create_time')->useCurrent();
             $table->timestamp('update_time')->useCurrent()->useCurrentOnUpdate();
@@ -36,3 +38,5 @@ return new class extends Migration
         Schema::dropIfExists('admin_users');
     }
 };
+
+

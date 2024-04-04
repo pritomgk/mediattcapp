@@ -36,6 +36,7 @@ class LoginoutController extends Controller
             session()->put('name', $admin_user->name);
             session()->put('role_name', $role->role_name);
             session()->put('role_id', $admin_user->role_id);
+            session()->put('email_verified', $admin_user->email_verified);
             session()->put('status', $admin_user->status);
 
             if ($admin_user->role_id == 1) {
@@ -59,6 +60,7 @@ class LoginoutController extends Controller
             session()->put('name', $student->name);
             session()->put('role_name', $role->role_name);
             session()->put('role_id', $student->role_id);
+            session()->put('email_verified', $student->email_verified);
             session()->put('status', $student->status);
 
             if ($student->role_id == 1) {

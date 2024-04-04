@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LoginoutController;
 use App\Http\Controllers\PubController;
@@ -46,6 +47,16 @@ Route::get('/logout', [LoginoutController::class, 'logout']
 
 // admin_panel routes
 
+
+Route::get('/admin_panel/admin_register', [AdminUserController::class, 'admin_register']
+)->name('admin_register');
+
+Route::post('/admin_panel/admin_register_apply', [AdminUserController::class, 'admin_register_apply']
+)->name('admin_register_apply');
+
+Route::post('/admin_panel/verify_token', [AdminUserController::class, 'verify_token']
+)->name('verify_token');
+
 Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
     
     Route::get('/', function () {
@@ -53,8 +64,6 @@ Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
             return redirect()->route('admin_dashboard');
         }elseif (session()->get('role_id') == 2) {
             return redirect()->route('teacher_dashboard');
-        }else{
-            return redirect()->route('home');
         }
     })->name('dashboard');
 

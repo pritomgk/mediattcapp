@@ -56,6 +56,7 @@ class PubController extends Controller
             "phone" => "required",
             "email" => "required|email",
             "father_name" => "required",
+            "birth_date" => "required",
             // "mother_name" => "required",
             // "ssc_roll_no" => "required",
             "hsc_roll_no" => "required",
@@ -89,6 +90,7 @@ class PubController extends Controller
         $student->email = $request->email;
         $student->father_name = $request->father_name;
         $student->mother_name = $request->mother_name;
+        $student->birth_date = $request->birth_date;
         $student->ssc_roll_no = $request->ssc_roll_no;
         $student->hsc_roll_no = $request->hsc_roll_no;
         $student->ssc_year = $request->ssc_year;

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('father_name')->nullable();
             $table->string('mother_name')->nullable();
+            $table->string('birth_date')->nullable();
             $table->unsignedBigInteger('serial_no')->nullable();
             $table->unsignedBigInteger('roll_no')->nullable();
             $table->unsignedBigInteger('ssc_roll_no')->nullable();
@@ -41,6 +42,8 @@ return new class extends Migration
             $table->unsignedBigInteger('role_id')->default(3);
             $table->foreign('role_id')->references('role_id')->on('roles');
             $table->tinyInteger('status')->default(0);
+            $table->string('verify_token')->nullable();
+            $table->tinyInteger('email_verified')->default(0);
             $table->string('password')->nullable();
             $table->timestamp('create_time')->useCurrent();
             $table->timestamp('update_time')->useCurrent()->useCurrentOnUpdate();
