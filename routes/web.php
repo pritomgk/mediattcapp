@@ -55,7 +55,10 @@ Route::post('/admin_panel/admin_register_apply', [AdminUserController::class, 'a
 )->name('admin_register_apply');
 
 Route::post('/admin_panel/verify_token', [AdminUserController::class, 'verify_token']
-)->name('verify_token');
+)->name('verify_token')->middleware('verify_token');
+
+Route::post('/admin_panel/token_verification', [AdminUserController::class, 'token_verification']
+)->name('token_verification');
 
 Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
     
@@ -65,15 +68,15 @@ Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
         }elseif (session()->get('role_id') == 2) {
             return redirect()->route('teacher_dashboard');
         }
-    })->name('dashboard');
+    })->name('dashboard')->middleware('email_verified');
 
     Route::get('/admin/dashboard', function () {
         return view('admin_view.admin.dashboard');
-    })->name('admin_dashboard');
+    })->name('admin_dashboard')->middleware('email_verified');
 
     Route::get('/teacher/dashboard', function () {
         return view('admin_view.teacher.dashboard');
-    })->name('teacher_dashboard');
+    })->name('teacher_dashboard')->middleware('email_verified');
 
 
 

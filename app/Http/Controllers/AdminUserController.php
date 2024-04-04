@@ -81,6 +81,18 @@ class AdminUserController extends Controller
 
     public function verify_token(){
 
+        if (session()->get('email_verified') !== 1) {
+            $admin_user = admin_user::where('email', session()->get('email'));
+        
+            $verify_token = rand(100000,999999);
+
+            session()->put('verify_token', $verify_token);
+
+            $admin_user->verify_token = $verify_token;
+
+            $admin_user->update();
+        }
+
         return view('admin_view.common.verify_token');
 
     }
