@@ -50,6 +50,9 @@ Media TTC - Log in
                     <div class="col-md-12 form-group">
                         <input type="submit" value="Log In" class="form-control form-control-lg bg-primary text-white" style="cursor: pointer;" />
                     </div>
+                    <div class="col-md-12 form-group mt-3 mb-3">
+                        <a href="{{ route('admission') }}" class="text-primary">Get Admission.</a>
+                    </div>
                   </form>
               </div>
           </div>

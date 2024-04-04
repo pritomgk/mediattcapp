@@ -6,6 +6,7 @@ use App\Mail\SendMail;
 use App\Models\course;
 use App\Models\student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 class PubController extends Controller
@@ -70,7 +71,7 @@ class PubController extends Controller
             "gender" => "required",
             "course_id" => "required",
             "address" => "required",
-            // "password"=> "required|min:8|max:16",
+            "password"=> "required|min:8|max:16",
             "document"=> "required|max:5120",
             // "official_id_card_image_front"=> "required|max:8192",
             // "official_id_card_image_back"=> "required|max:8192",
@@ -102,7 +103,7 @@ class PubController extends Controller
         $student->course_id = $request->course_id;
         $student->address = $request->address;
         $student->role_id = 3;
-        // $student->password = $request->password;
+        $student->password = Hash::make($request->password);
         $student->document = $docment_name;
         $student->save();
 

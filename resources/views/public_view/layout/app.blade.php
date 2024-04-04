@@ -50,8 +50,8 @@
                             <a href="mailto:mttijamalpur@gmail.com" target="_blank" class="small mr-3"><span class="icon-envelope-o mr-2"></span>mttijamalpur@gmail.com</a>
                         </div>
                         <div class="col-lg-3 text-right">
-                            <a href="{{ route('login') }}" class="small mr-3"><span class="icon-unlock-alt"></span> Log In</a>
-                            <a href="register.php" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users"></span> Register</a>
+                            {{-- <a href="{{ route('login') }}" class="small mr-3"><span class="icon-unlock-alt"></span> Log In</a> --}}
+                            <a href="{{ route('login') }}" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users"></span> Log In</a>
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                                         <a href="{{ route('admission') }}" class="nav-link text-left">Admissions</a>
                                     </li>
                                     <li>
-                                        <a href="courses.php" class="nav-link text-left">Result</a>
+                                        <a href="#" class="nav-link text-left">Result</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('contact_us') }}" class="nav-link text-left">Contact</a>

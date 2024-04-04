@@ -191,7 +191,7 @@
                 @enderror
             </div>
         </div>
-        {{-- <div class="row">
+        <div class="row">
             <div class="col-md-12 form-group">
                 <label for="password"><span class="text-warning">*</span> Password</label>
                 <input type="text" id="password" required name="password" class="form-control form-control-lg" />
@@ -199,7 +199,7 @@
                 <p class="mb-0 alert alert-danger">{{ $message }}</p>
                 @enderror
             </div>
-        </div> --}}
+        </div>
         <div class="row">
             <div class="col-md-12 form-group">
                 <label for="document"><span class="text-warning">*</span> Document</label>
