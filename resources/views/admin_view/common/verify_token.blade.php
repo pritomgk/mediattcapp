@@ -48,7 +48,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="exampleInputOTP" name="verify_token" placeholder="OTP Here..">
-                                    @if (session()->has('success'))
+                                    @if (session()->has('email'))
                                     <input type="hidden" name="email" hidden value="{{ session()->get('email') }}">
                                     @endif
                                         @error('verify_token')
