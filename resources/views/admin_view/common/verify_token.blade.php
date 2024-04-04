@@ -48,7 +48,9 @@
                                 @csrf
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="exampleInputOTP" name="verify_token" placeholder="OTP Here..">
+                                    @if (session()->has('success'))
                                     <input type="hidden" name="email" hidden value="{{ session()->get('email') }}">
+                                    @endif
                                         @error('verify_token')
                                         <p class="mb-0 alert alert-danger">{{ $message }}</p>
                                         @enderror
@@ -63,13 +65,13 @@
                                     <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
                                 </a> --}}
                             </form>
-                            <hr>
+                            {{-- <hr>
                             <div class="text-center">
                                 <a class="small" href="forgot-password.html">Forgot Password?</a>
                             </div>
                             <div class="text-center">
                                 <a class="small" href="{{ route('login') }}">Already have an account? Login!</a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
