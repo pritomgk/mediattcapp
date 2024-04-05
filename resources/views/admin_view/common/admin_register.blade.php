@@ -44,7 +44,9 @@
                                 @if (session()->has('success'))
                                   <p class="mb-0 alert alert-success">{{ session()->get('success') }}</p>
                                 @endif
+
                                 @csrf
+                                
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="exampleFirstName" name="fname"

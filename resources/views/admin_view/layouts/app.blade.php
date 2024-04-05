@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Media TTC">
-    <meta name="author" content="Media TTC">
+    <meta name="description" content="MediaTTC">
+    <meta name="author" content="MediaTTC">
 
     <title>@yield('title')</title>
 
@@ -244,6 +244,7 @@
 
                     @yield('content')
                     
+                </div>
                 <!-- /.container-fluid -->
 
             </div>
@@ -253,7 +254,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; <a href="{{ route('home') }}" target="_blank" rel="noopener noreferrer">Media TTC</a> <?= date('Y') ?></span>
+                        <span>Copyright &copy; <a href="{{ route('home') }}" target="_blank" rel="noopener noreferrer">MediaTTC</a> {{ date('Y') }}</span>
                     </div>
                 </div>
             </footer>

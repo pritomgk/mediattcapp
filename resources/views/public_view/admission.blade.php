@@ -43,8 +43,8 @@
             </div>
             <div class="row">
                 <div class="col-md-6 form-group">
-                    <label for="eaddress"><span class="text-warning">*</span> Email Address</label>
-                    <input type="text" id="eaddress" required name="email" class="form-control form-control-lg" />
+                    <label for="email"><span class="text-warning">*</span> Email Address</label>
+                    <input type="email" id="email" required name="email" class="form-control form-control-lg" />
                     @error('email')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
@@ -124,91 +124,91 @@
                 </div>
             </div>
             <div class="row">
-            <div class="col-md-6 form-group">
-                <label for="ssc_regi_no">SSC Registration NO.</label>
-                <input type="text" id="ssc_regi_no" name="ssc_regi_no" class="form-control form-control-lg" />
-                @error('ssc_regi_no')
-                <p class="mb-0 alert alert-danger">{{ $message }}</p>
-                @enderror
-            </div>
-            <div class="col-md-6 form-group">
-                <label for="hsc_regi_no"><span class="text-warning">*</span> HSC Registration NO.</label>
-                <input type="text" id="hsc_regi_no" required name="hsc_regi_no" class="form-control form-control-lg" />
-                @error('hsc_regi_no')
-                <p class="mb-0 alert alert-danger">{{ $message }}</p>
-                @enderror
-            </div>
-        </div>
-            <div class="row">
-            <div class="col-md-6 form-group">
-                <label for="ssc_grade">SSC Passing Grade</label>
-                <input type="text" id="ssc_grade" name="ssc_grade" class="form-control form-control-lg" />
-                @error('ssc_grade')
-                <p class="mb-0 alert alert-danger">{{ $message }}</p>
-                @enderror
-            </div>
-            <div class="col-md-6 form-group">
-                <label for="hsc_grade"><span class="text-warning">*</span> HSC Passing Grade</label>
-                <input type="text" id="hsc_grade" required name="hsc_grade" class="form-control form-control-lg" />
-                @error('hsc_grade')
-                <p class="mb-0 alert alert-danger">{{ $message }}</p>
-                @enderror
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 form-group">
                 <div class="col-md-6 form-group">
-                    <label for="gender"><span class="text-warning">*</span> Gender</label> <br> <br>
-                    <input type="radio" name="gender" value="1" /> Male <br>
-                    <input type="radio" name="gender" value="2" /> Female <br>
-                    <input type="radio" name="gender" value="3" /> Other <br>
-                    @error('gender')
+                    <label for="ssc_regi_no">SSC Registration NO.</label>
+                    <input type="text" id="ssc_regi_no" name="ssc_regi_no" class="form-control form-control-lg" />
+                    @error('ssc_regi_no')
+                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="hsc_regi_no"><span class="text-warning">*</span> HSC Registration NO.</label>
+                    <input type="text" id="hsc_regi_no" required name="hsc_regi_no" class="form-control form-control-lg" />
+                    @error('hsc_regi_no')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 form-group">
-                <label for="course_id"><span class="text-warning">*</span> Select Course</label>
-                <select name="course_id" id="course_id" required class="form-control form-control-lg">
-                    <option value="">Choose..</option>
-                    @foreach ($courses as $course)
-                        <option value="{{ $course->course_id }}">{{ $course->title }}</option>
-                    @endforeach
-                </select>
-                @error('course_id')
-                <p class="mb-0 alert alert-danger">{{ $message }}</p>
-                @enderror
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="ssc_grade">SSC Passing Grade</label>
+                    <input type="text" id="ssc_grade" name="ssc_grade" class="form-control form-control-lg" />
+                    @error('ssc_grade')
+                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="hsc_grade"><span class="text-warning">*</span> HSC Passing Grade</label>
+                    <input type="text" id="hsc_grade" required name="hsc_grade" class="form-control form-control-lg" />
+                    @error('hsc_grade')
+                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 form-group">
-                <label for="address"><span class="text-warning">*</span> Address</label>
-                <input type="text" id="address" required name="address" class="form-control form-control-lg" />
-                @error('address')
-                <p class="mb-0 alert alert-danger">{{ $message }}</p>
-                @enderror
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <div class="col-md-6 form-group">
+                        <label for="gender"><span class="text-warning">*</span> Gender</label> <br> <br>
+                        <input type="radio" name="gender" value="1" /> Male <br>
+                        <input type="radio" name="gender" value="2" /> Female <br>
+                        <input type="radio" name="gender" value="3" /> Other <br>
+                        @error('gender')
+                        <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 form-group">
-                <label for="password"><span class="text-warning">*</span> Password</label>
-                <input type="text" id="password" required name="password" class="form-control form-control-lg" />
-                @error('password')
-                <p class="mb-0 alert alert-danger">{{ $message }}</p>
-                @enderror
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label for="course_id"><span class="text-warning">*</span> Select Course</label>
+                    <select name="course_id" id="course_id" required class="form-control form-control-lg">
+                        <option value="">Choose..</option>
+                        @foreach ($courses as $course)
+                            <option value="{{ $course->course_id }}">{{ $course->title }}</option>
+                        @endforeach
+                    </select>
+                    @error('course_id')
+                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 form-group">
-                <label for="document"><span class="text-warning">*</span> Document</label>
-                <input type="file" id="document" required name="document" class="form-control form-control-lg" />
-                @error('file')
-                <p class="mb-0 alert alert-danger">{{ $message }}</p>
-                @enderror
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label for="address"><span class="text-warning">*</span> Address</label>
+                    <input type="text" id="address" required name="address" class="form-control form-control-lg" />
+                    @error('address')
+                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label for="password"><span class="text-warning">*</span> Password</label>
+                    <input type="text" id="password" required name="password" class="form-control form-control-lg" />
+                    @error('password')
+                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label for="document"><span class="text-warning">*</span> Document</label>
+                    <input type="file" id="document" required name="document" class="form-control form-control-lg" />
+                    @error('document')
+                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
             {{-- <div class="row">
                 <div class="col-md-12 form-group">
                     <label for="message">Message</label>

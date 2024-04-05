@@ -51,7 +51,7 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="course-1-item">
                             <figure class="thumnail">
-                                    <a href="{{ url('single_course/'.$course->course_id) }}"><img src="{{ asset('storage/courses/'.$course->content) }}" alt="Image" class="img-fluid"></a>
+                                    <a href="{{ url('single_course/'.$course->course_id) }}"><img src="{{ asset('storage/uploads/courses/'.$course->content) }}" alt="Image" class="img-fluid"></a>
                             <div class="price">{{ $course->price }}</div>
                             {{-- <div class="category"><h3>Mobile Application</h3></div>   --}}
                             </figure>

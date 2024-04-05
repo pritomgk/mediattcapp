@@ -54,30 +54,51 @@ Route::get('/admin_panel/admin_register', [AdminUserController::class, 'admin_re
 Route::post('/admin_panel/admin_register_apply', [AdminUserController::class, 'admin_register_apply']
 )->name('admin_register_apply');
 
-Route::post('/admin_panel/verify_token', [AdminUserController::class, 'verify_token']
-)->name('verify_token')->middleware('verify_token');
+Route::get('/admin_panel/verify_token', [AdminUserController::class, 'verify_token']
+)->name('verify_token');
 
 Route::post('/admin_panel/token_verification', [AdminUserController::class, 'token_verification']
 )->name('token_verification');
 
 Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
     
+    Route::get('/dashboard', [AdminUserController::class, 'dashboard']
+    )->name('dashboard')->middleware('email_verified');
+    
     Route::get('/', function () {
-        if (session()->get('role_id') == 1) {
-            return redirect()->route('admin_dashboard');
-        }elseif (session()->get('role_id') == 2) {
-            return redirect()->route('teacher_dashboard');
-        }
-    })->name('dashboard')->middleware('email_verified');
+        return redirect()->route('dashboard');
+    });
 
-    Route::get('/admin/dashboard', function () {
-        return view('admin_view.admin.dashboard');
-    })->name('admin_dashboard')->middleware('email_verified');
+    // Route::get('/admin/dashboard', function () {
+    //     return view('admin_view.admin.dashboard');
+    // })->name('admin_dashboard')->middleware('email_verified');
 
-    Route::get('/teacher/dashboard', function () {
-        return view('admin_view.teacher.dashboard');
-    })->name('teacher_dashboard')->middleware('email_verified');
+    // Route::get('/teacher/dashboard', function () {
+    //     return view('admin_view.teacher.dashboard');
+    // })->name('teacher_dashboard')->middleware('email_verified');
 
+    Route::get('/all_admin_courses', [AdminUserController::class, 'all_admin_courses']
+    )->name('all_admin_courses');
+    
+
+    Route::get('/add_courses', [CourseController::class, 'add_courses']
+    )->name('add_courses');
+    
+
+    Route::post('/add_courses_info', [CourseController::class, 'add_courses_info']
+    )->name('add_courses_info');
+    
+    Route::get('/delete_courses_info/{course_id}', [CourseController::class, 'delete_courses_info']
+    )->name('delete_courses_info');
+    
+    
+    Route::get('/update_courses/{course_id}', [CourseController::class, 'update_courses']
+    )->name('update_courses');
+    
+    
+    Route::post('/update_courses_info', [CourseController::class, 'update_courses_info']
+    )->name('update_courses_info');
+    
 
 
 });

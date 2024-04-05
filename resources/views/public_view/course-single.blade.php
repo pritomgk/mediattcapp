@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <p>
-                        <img src="{{ asset('storage/courses/'.$single_course->content) }}" alt="Image" class="img-fluid">
+                        <img src="{{ asset('storage/uploads/courses/'.$single_course->content) }}" alt="Image" class="img-fluid">
                     </p>
                 </div>
                 <div class="col-lg-5 ml-auto align-self-center">
@@ -41,7 +41,7 @@
                         </h2>
                         
                         <p><strong class="text-black d-block">Teacher:</strong> {{ $single_course->teacher_name }}</p>
-                        <p class="mb-5"><strong class="text-black d-block">Hours:</strong> {{ $single_course->start_time }} &mdash; {{ $single_course->end_time }}</p>
+                        <p class="mb-5"><strong class="text-black d-block">Hours:</strong> <input type="time" value="{{ $single_course->start_time }}" disabled>  &mdash; <input type="time" value="{{ $single_course->end_time }}" disabled></p>
                         <p>{{ $single_course->description }}</p>
                         {{-- <p>Modi sit dolor repellat esse! Sed necessitatibus itaque libero odit placeat nesciunt, voluptatum totam facere.</p> --}}
     

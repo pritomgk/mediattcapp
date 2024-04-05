@@ -4,13 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Mail\SendMail;
 use App\Models\admin_user;
+use App\Models\course;
 use App\Models\role;
+use App\Models\student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 class AdminUserController extends Controller
 {
+
+    public function dashboard(){
+
+        $courses_count = course::all()->count();
+
+        $active_students = student::where('status', 1)->get()->count();
+
+        $deactive_students = student::where('status', 0)->get()->count();
+
+        // $courses = course::all();
+        
+        if (session()->get('role_id') == 1) {
+            return view('admin_view.admin.dashboard', compact('courses_count', 'active_students', 'deactive_students'));
+        }elseif (session()->get('role_id') == 2) {
+            return view('admin_view.teacher.dashboard', compact('courses_count', 'active_students', 'deactive_students'));
+        }
+
+
+    }
 
     public function admin_register(){
 
@@ -82,7 +103,7 @@ class AdminUserController extends Controller
     public function verify_token(){
 
         if (session()->get('email_verified') !== 1) {
-            $admin_user = admin_user::where('email', session()->get('email'));
+            $admin_user = admin_user::where('email', session()->get('email'))->first();
         
             $verify_token = rand(100000,999999);
 
@@ -90,7 +111,21 @@ class AdminUserController extends Controller
 
             $admin_user->verify_token = $verify_token;
 
-            $admin_user->update();
+            $admin_user->save();
+
+            $subject_admin_request = 'Mail verification request.';
+
+            
+            $body_admin_request = '
+            Hello Sir, <br><br>
+            Your otp is <br><br>'.$verify_token.' <br> <br>
+            Provide the otp to verify account. <br>
+            Thank you, <br>
+            MediaTTC.
+            ';
+
+            Mail::to($admin_user->email)->send(new SendMail($subject_admin_request, $body_admin_request));
+
         }
 
         return view('admin_view.common.verify_token');
@@ -126,6 +161,17 @@ class AdminUserController extends Controller
         }
 
     }
+    
+    public function all_admin_courses(){
+
+        $all_admin_courses = course::all();
+
+        return view('admin_view.common.all_admin_courses', compact('all_admin_courses'));
+
+    }
+
+
+
 
 
     

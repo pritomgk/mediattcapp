@@ -19,6 +19,7 @@ class CourseSeeder extends Seeder
             'teacher_name' => 'Harun Sir',
             'description' => 'CSE is a demandable subject now.',
             'price' => '4500',
+            'content' => 'course_6.jpg',
         ]);
         course::create([
             'title' => 'ICT',
@@ -26,6 +27,7 @@ class CourseSeeder extends Seeder
             'teacher_name' => 'Harun Sir',
             'description' => 'CSE is a demandable subject now.',
             'price' => '5000',
+            'content' => 'course_1.jpg',
         ]);
         course::create([
             'title' => 'Technology',
@@ -33,6 +35,9 @@ class CourseSeeder extends Seeder
             'teacher_name' => 'Harun Sir',
             'description' => 'CSE is a demandable subject now.',
             'price' => '5500',
+            'content' => 'course_3.jpg',
         ]);
     }
 }
+
+
