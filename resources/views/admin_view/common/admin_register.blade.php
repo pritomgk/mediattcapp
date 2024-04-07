@@ -37,7 +37,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user" action="" method="POST">
+                            <form class="user" action="{{ route('admin_register_apply') }}" method="POST">
                                 @if (session()->has('error'))
                                   <p class="mb-0 alert alert-danger">{{ session()->get('error') }}</p>
                                 @endif

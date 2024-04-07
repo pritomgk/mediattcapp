@@ -1,7 +1,7 @@
 @extends('public_view.layout.app')
 
 @section('title')
-Media TTC - Log in
+MediaTTC - Log in
 @endsection
 @section('content')
 <div class="site-section">

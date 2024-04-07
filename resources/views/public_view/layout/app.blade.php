@@ -176,13 +176,14 @@
                         <div class="col-12">
                             <div class="copyright">
                                 <p>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    <!-- Links of copyright and developer -->
                                     Copyright &copy;
                                     <script>
                                         document.write(new Date().getFullYear());
                                     </script>
-                                    All rights reserved <i class="icon-heart" aria-hidden="true"></i> by <a href="{{ route('home') }}" target="_blank">Media TTC</a>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    All rights reserved <i class="icon-heart" aria-hidden="true"></i> by <a href="{{ route('home') }}" target="_blank">MediaTTC</a>
+                                    <p>Made by <a href="https://wa.me/+8801734167539" target="_blank" rel="noopener noreferrer">Holy IT</a></p>
+                                    <!-- Links of copyright and developer -->
                                 </p>
                             </div>
                         </div>

@@ -4,11 +4,20 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LoginoutController;
 use App\Http\Controllers\PubController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('public_view.home');
-})->name('home');
+
+
+// public page routes 
+
+
+Route::get('/', [PubController::class, 'home']
+)->name('home');
+
+Route::get('/home', function () {
+    return redirect()->route('home');
+});
 
 Route::get('/single_course/{course_id}', [CourseController::class, 'single_course']
 )->name('single_course');
@@ -98,6 +107,21 @@ Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
     
     Route::post('/update_courses_info', [CourseController::class, 'update_courses_info']
     )->name('update_courses_info');
+    
+    Route::get('/add_students_manually', [StudentController::class, 'add_students_manually']
+    )->name('add_students_manually');
+    
+    
+    Route::post('/add_students_manually_info', [StudentController::class, 'add_students_manually_info']
+    )->name('add_students_manually_info');
+    
+    
+    Route::get('/all_active_students', [StudentController::class, 'all_active_students']
+    )->name('all_active_students');
+    
+    
+    Route::get('/all_deactive_students', [StudentController::class, 'all_deactive_students']
+    )->name('all_deactive_students');
     
 
 

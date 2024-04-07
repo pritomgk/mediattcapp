@@ -1,18 +1,18 @@
-@extends('public_view.layout.app')
+@extends('admin_view.layouts.app')
 
 @section('title')
-  Media TTC - Admission
+  MediaTTC - Add Student Manually
 @endsection
 
 @section('content')
 
 <div class="site-section mt-5">
     <div class="container mt-5">
-        <form action="{{ route('admission_apply') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('add_students_manually_info') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-md-6 form-group mb-4 mx-auto text-center">
-                    <h3>Apply For Admission</h3>
+                    <h3>Add Student Manually</h3>
                 </div>
             </div>
             @if (session()->has('error'))
@@ -44,15 +44,15 @@
             </div>
             <div class="row">
                 <div class="col-md-6 form-group">
-                    <label for="email"><span class="text-warning">*</span> Email Address</label>
-                    <input type="email" id="email" required name="email" class="form-control form-control-lg" />
+                    <label for="email"> Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control form-control-lg" />
                     @error('email')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="col-md-6 form-group">
-                    <label for="phone"><span class="text-warning">*</span> Phone Number</label>
-                    <input type="text" id="phone" required name="phone" value="+880" class="form-control form-control-lg" />
+                    <label for="phone"> Phone Number</label>
+                    <input type="text" id="phone" name="phone" value="+880" class="form-control form-control-lg" />
                     @error('phone')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
@@ -60,8 +60,8 @@
             </div>
             <div class="row">
                 <div class="col-md-6 form-group">
-                    <label for="father_name"><span class="text-warning">*</span> Father Name</label>
-                    <input type="text" id="father_name" required name="father_name" class="form-control form-control-lg" />
+                    <label for="father_name"> Father Name</label>
+                    <input type="text" id="father_name" name="father_name" class="form-control form-control-lg" />
                     @error('father_name')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
@@ -85,6 +85,38 @@
             </div>
             <div class="row">
                 <div class="col-md-6 form-group">
+                    <label for="serial_no"> Serial NO.</label>
+                    <input type="text" id="serial_no" name="serial_no" class="form-control form-control-lg" />
+                    @error('serial_no')
+                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="grade"> Result (Grade)</label>
+                    <input type="text" id="grade"  name="grade" class="form-control form-control-lg" />
+                    @error('grade')
+                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="certificate_serial"> Certificate Serial</label>
+                    <input type="text" id="certificate_serial" name="certificate_serial" class="form-control form-control-lg" />
+                    @error('certificate_serial')
+                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="regi_no"> Registration NO.</label>
+                    <input type="text" id="regi_no"  name="regi_no" class="form-control form-control-lg" />
+                    @error('regi_no')
+                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
                     <label for="ssc_roll_no"><span class="text-warning">*</span> SSC Roll NO.</label>
                     <input type="text" id="ssc_roll_no" required name="ssc_roll_no" class="form-control form-control-lg" />
                     @error('ssc_roll_no')
@@ -93,7 +125,7 @@
                 </div>
                 <div class="col-md-6 form-group">
                     <label for="hsc_roll_no"> HSC Roll NO.</label>
-                    <input type="text" id="hsc_roll_no" name="hsc_roll_no" class="form-control form-control-lg" />
+                    <input type="text" id="hsc_roll_no"  name="hsc_roll_no" class="form-control form-control-lg" />
                     @error('hsc_roll_no')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
@@ -101,8 +133,8 @@
             </div>
             <div class="row">
                 <div class="col-md-6 form-group">
-                    <label for="ssc_year"><span class="text-warning">*</span> SSC Year</label>
-                    <input type="text" id="ssc_year" required name="ssc_year" class="form-control form-control-lg" />
+                    <label for="ssc_year"> SSC Year</label>
+                    <input type="text" id="ssc_year" name="ssc_year" class="form-control form-control-lg" />
                     @error('ssc_yeat')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
@@ -117,8 +149,8 @@
             </div>
             <div class="row">
                 <div class="col-md-12 form-group">
-                    <label for="ssc_from"><span class="text-warning">*</span> SSC Passing Institution</label>
-                    <input type="text" id="ssc_from" required name="ssc_from" class="form-control form-control-lg" />
+                    <label for="ssc_from"> SSC Passing Institution</label>
+                    <input type="text" id="ssc_from" name="ssc_from" class="form-control form-control-lg" />
                     @error('ssc_from')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
@@ -135,8 +167,8 @@
             </div>
             <div class="row">
                 <div class="col-md-6 form-group">
-                    <label for="ssc_regi_no"><span class="text-warning">*</span> SSC Registration NO.</label>
-                    <input type="text" id="ssc_regi_no" required name="ssc_regi_no" class="form-control form-control-lg" />
+                    <label for="ssc_regi_no"> SSC Registration NO.</label>
+                    <input type="text" id="ssc_regi_no" name="ssc_regi_no" class="form-control form-control-lg" />
                     @error('ssc_regi_no')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
@@ -202,19 +234,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 form-group">
-                    <label for="password"><span class="text-warning">*</span> Password</label>
-                    <input type="password" id="password" required name="password" class="form-control form-control-lg" />
-                    @error('password')
-                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
-                    @enderror
-                </div>
-            </div>
-            <div class="row">
                 <p class="text-warning text-center"> You may provide .zip file..</p>
                 <div class="col-md-12 form-group">
-                    <label for="document"><span class="text-warning">*</span> Document</label>
-                    <input type="file" id="document" required name="document" class="form-control form-control-lg" />
+                    <label for="document"> Document</label>
+                    <input type="file" id="document" name="document" class="form-control form-control-lg" />
                     @error('document')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
@@ -228,7 +251,7 @@
             </div> --}}
             <div class="row">
                 <div class="col-12 text-center">
-                    <input type="submit" value="Submit" class="btn btn-primary btn-lg px-5" />
+                    <input type="submit" value="Add Student" class="btn btn-primary btn-lg px-5" />
                 </div>
             </div>
         </form>

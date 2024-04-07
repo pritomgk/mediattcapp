@@ -1,6 +1,6 @@
 @extends('public_view.layout.app')
 @section('title')
-    Media TTC
+    MediaTTC
 @endsection
 @section('content')
 <div class="hero-slide owl-carousel site-blocks-cover">
@@ -25,8 +25,8 @@
     </div>
 </div>
 
-<div></div>
 
+{{-- 
 <div class="site-section">
     <div class="container">
         <div class="row mb-5 justify-content-center text-center">
@@ -75,7 +75,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <div class="site-section">
     <div class="container">
@@ -90,126 +90,34 @@
 
         <div class="row">
             <div class="col-12">
+
                 <div class="owl-slide-3 owl-carousel">
-                    <div class="course-1-item">
-                        <figure class="thumnail">
-                            <a href="course-single.php"><img src="{{ asset('pv_assets/images/course_1.jpg') }}" alt="Image" class="img-fluid" /></a>
-                            <div class="price">$99.00</div>
-                            <div class="category"><h3>Diploma in Computer Science & ICT</h3></div>
-                        </figure>
-                        <div class="course-1-content pb-4">
-                            <h2>How To Create Mobile Apps Using Ionic</h2>
-                            <div class="rating text-center mb-3">
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                            </div>
-                            <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                            <p><a href="course-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                        </div>
-                    </div>
 
-                    <div class="course-1-item">
-                        <figure class="thumnail">
-                            <a href="course-single.php"><img src="{{ asset('pv_assets/images/course_2.jpg') }}" alt="Image" class="img-fluid" /></a>
-                            <div class="price">$99.00</div>
-                            <div class="category"><h3>Diploma in Multilingual Secretarial Science (Data Entry/Typing)</h3></div>
-                        </figure>
-                        <div class="course-1-content pb-4">
-                            <h2>How To Create Mobile Apps Using Ionic</h2>
-                            <div class="rating text-center mb-3">
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
+                    @foreach ($courses_latest as $course_latest)
+                        <div class="course-1-item">
+                            <figure class="thumnail">
+                                <a href="{{ route('single_course', ['course_id' => $course_latest->course_id]) }}"><img src="{{ asset('storage/uploads/courses/'.$course_latest->content) }}" alt="Image" class="img-fluid" /></a>
+                                <div class="price">{{ $course_latest->price }}</div>
+                                {{-- <div class="category"><h3>Diploma in Electric & Electronic Technology</h3></div> --}}
+                            </figure>
+                            <div class="course-1-content pb-4">
+                                <h2>{{ $course_latest->title }}</h2>
+                                <div class="rating text-center mb-3">
+                                    <span class="icon-star2 text-warning"></span>
+                                    <span class="icon-star2 text-warning"></span>
+                                    <span class="icon-star2 text-warning"></span>
+                                    <span class="icon-star2 text-warning"></span>
+                                    <span class="icon-star2 text-warning"></span>
+                                </div>
+                                <p class="desc mb-4">{{ $course_latest->tagline }}</p>
+                                <p><a href="{{ route('single_course', ['course_id' => $course_latest->course_id]) }}" class="btn btn-primary rounded-0 px-4">See More</a></p>
                             </div>
-                            <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                            <p><a href="course-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
                         </div>
-                    </div>
-
-                    <div class="course-1-item">
-                        <figure class="thumnail">
-                            <a href="course-single.php"><img src="{{ asset('pv_assets/images/course_3.jpg') }}" alt="Image" class="img-fluid" /></a>
-                            <div class="price">$99.00</div>
-                            <div class="category"><h3>Diploma in Electric & Electronic Technology</h3></div>
-                        </figure>
-                        <div class="course-1-content pb-4">
-                            <h2>How To Create Mobile Apps Using Ionic</h2>
-                            <div class="rating text-center mb-3">
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                            </div>
-                            <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                            <p><a href="courses-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                        </div>
-                    </div>
-
-                    <div class="course-1-item">
-                        <figure class="thumnail">
-                            <a href="course-single.php"><img src="{{ asset('pv_assets/images/course_4.jpg') }}" alt="Image" class="img-fluid" /></a>
-                            <div class="price">$99.00</div>
-                            <div class="category"><h3>Diplolma In Sprayer Mechanic Technology</h3></div>
-                        </figure>
-                        <div class="course-1-content pb-4">
-                            <h2>How To Create Mobile Apps Using Ionic</h2>
-                            <div class="rating text-center mb-3">
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                            </div>
-                            <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                            <p><a href="course-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                        </div>
-                    </div>
-
-                    <div class="course-1-item">
-                        <figure class="thumnail">
-                            <a href="course-single.php"><img src="{{ asset('pv_assets/images/course_5.jpg') }}" alt="Image" class="img-fluid" /></a>
-                            <div class="price">$99.00</div>
-                            <div class="category"><h3>Certificate in Library & Information Science</h3></div>
-                        </figure>
-                        <div class="course-1-content pb-4">
-                            <h2>How To Create Mobile Apps Using Ionic</h2>
-                            <div class="rating text-center mb-3">
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                            </div>
-                            <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                            <p><a href="course-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                        </div>
-                    </div>
-
-                    <div class="course-1-item">
-                        <figure class="thumnail">
-                            <a href="course-single.php"><img src="{{ asset('pv_assets/images/course_6.jpg') }}" alt="Image" class="img-fluid" /></a>
-                            <div class="price">$99.00</div>
-                            <div class="category"><h3>Mobile Application</h3></div>
-                        </figure>
-                        <div class="course-1-content pb-4">
-                            <h2>How To Create Mobile Apps Using Ionic</h2>
-                            <div class="rating text-center mb-3">
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                                <span class="icon-star2 text-warning"></span>
-                            </div>
-                            <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                            <p><a href="course-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                        </div>
-                    </div>
+                    @endforeach
+                    
+                </div>
+                <div class="col-8 text-center col-md-8 mx-auto">
+                    <a href="{{ route('all_courses') }}" class="btn btn-primary rounded-0 px-4">All Courses</a>
                 </div>
             </div>
         </div>
@@ -238,7 +146,8 @@
 </div>
 
 <!-- // 05 - Block -->
-<div class="site-section">
+
+{{-- <div class="site-section">
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-4">
@@ -368,8 +277,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
+{{-- 
 <div class="news-updates">
     <div class="container">
         <div class="row">
@@ -468,7 +378,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 @endsection
 
