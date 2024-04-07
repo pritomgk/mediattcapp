@@ -148,7 +148,7 @@ class AdminUserController extends Controller
     public function token_verification(Request $request){
 
         if (!empty($request->email)) {
-            $email_token_submit = Admin_user::where('email', $request->email)->where('verify_token', $request->token)->update([ 'email_verified' => 1 ]);
+            $email_token_submit = admin_user::where('email', $request->email)->where('verify_token', $request->token)->update([ 'email_verified' => 1 ]);
         
             if($email_token_submit){
                 
@@ -157,10 +157,20 @@ class AdminUserController extends Controller
 
                 return redirect(route('login'))->with('success', 'Email successfully verified. You will be notified by email if your registration is approved or not..!');
             }else {
-                return redirect(route('login'))->with('error', 'Email can not be verified, please retry..!');
+                $email_token_submit = admin_user::where('email', session()->get('email'))->where('verify_token', session()->get('verify_token'))->update([ 'email_verified' => 1 ]);
+        
+                if($email_token_submit){
+                    
+                    session()->put('email_verified', 1);
+                    session()->forget('verify_token');
+
+                    return redirect(route('login'))->with('success', 'Email successfully verified. You will be notified by email if your registration is approved or not..!');
+                }else {
+                    return redirect(route('login'))->with('error', 'Email can not be verified, please retry..!');
+                }
             }
         }else {
-            $email_token_submit = Admin_user::where('email', session()->get('email'))->where('verify_token', session()->get('token'))->update([ 'email_verified' => 1 ]);
+            $email_token_submit = admin_user::where('email', session()->get('email'))->where('verify_token', session()->get('verify_token'))->update([ 'email_verified' => 1 ]);
         
             if($email_token_submit){
                 

@@ -37,7 +37,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user" action="" method="POST">
+                            <form class="user" action="token_verification" method="GET">
                                 @if (session()->has('error'))
                                   <p class="mb-0 alert alert-danger">{{ session()->get('error') }}</p>
                                 @endif
@@ -45,7 +45,6 @@
                                   <p class="mb-0 alert alert-success">{{ session()->get('success') }}</p>
                                 @endif
 
-                                @csrf
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="exampleInputOTP" name="verify_token" placeholder="OTP Here..">
                                     @if (session()->has('email'))

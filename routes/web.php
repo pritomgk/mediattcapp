@@ -72,7 +72,7 @@ Route::post('/admin_panel/admin_register_apply', [AdminUserController::class, 'a
 Route::get('/admin_panel/verify_token', [AdminUserController::class, 'verify_token']
 )->name('verify_token');
 
-Route::post('/admin_panel/token_verification', [AdminUserController::class, 'token_verification']
+Route::get('/admin_panel/token_verification', [AdminUserController::class, 'token_verification']
 )->name('token_verification');
 
 Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
