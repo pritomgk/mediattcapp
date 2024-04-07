@@ -109,7 +109,7 @@
                                         <a href="{{ route('admission') }}" class="nav-link text-left">Admissions</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="nav-link text-left">Result</a>
+                                        <a href="{{ route('result') }}" class="nav-link text-left">Result</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('contact_us') }}" class="nav-link text-left">Contact</a>

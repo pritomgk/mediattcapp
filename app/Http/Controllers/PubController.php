@@ -82,7 +82,6 @@ class PubController extends Controller
             "course_id" => "required",
             "address" => "required",
             "password"=> "required|min:8|max:16",
-            "document"=> "required|max:10240",
             // "official_id_card_image_front"=> "required|max:8192",
             // "official_id_card_image_back"=> "required|max:8192",
             // "confirm_password"=> "required|same:password",
@@ -91,19 +90,26 @@ class PubController extends Controller
 
         $existing_studnet = student::where('ssc_roll_no', $request->ssc_roll_no)->first();
         
-        $first_name = $request->fname;
-        $docment_name = $first_name.'_document_'.date("Y_m_d_h_i_sa").'.'.$request->file('document')->getClientOriginalExtension();
-        $request->file('document')->storeAs('public/uploads/document', $docment_name);
 
         if (!empty($existing_studnet)) {
-    
-            if (!empty($existing_studnet->content)) {
-                unlink(public_path('storage/uploads/documet/'.$existing_studnet->content));
-            }
 
-            $request->validate([
-                "document"=> "required|max:10240",
-            ]);
+            if (!empty($request->document)) {
+                
+        
+                $request->validate([
+                    "document"=> "required|max:10240",
+                ]);
+
+                if (!empty($existing_studnet->document)) {
+                    unlink(public_path('storage/uploads/documet/'.$existing_studnet->document));
+                }
+                
+                $first_name = $request->fname;
+                $docment_name = $first_name.'_document_'.date("Y_m_d_h_i_sa").'.'.$request->file('document')->getClientOriginalExtension();
+                $request->file('document')->storeAs('public/uploads/document', $docment_name);
+
+                $existing_studnet->document = $docment_name;
+            }
 
             $existing_studnet->name = $request->fname.' '.$request->lname;
             $existing_studnet->phone = $request->phone;
@@ -124,14 +130,29 @@ class PubController extends Controller
             $existing_studnet->course_id = $request->course_id;
             $existing_studnet->address = $request->address;
             $existing_studnet->role_id = 3;
-            $existing_studnet->password = Hash::make($request->password);
-            $existing_studnet->document = $docment_name;
+            
+            if ($existing_studnet->ssc_regi_no == $request->ssc_regi_no) {
+                $existing_studnet->password = Hash::make($request->password);
+            }
+
             $existing_studnet->update();
     
         }else{
             
-    
             $student = new student();
+            
+            if (!empty($request->document)) {
+        
+                $request->validate([
+                    "document"=> "required|max:10240",
+                ]);
+                
+                $first_name = $request->fname;
+                $docment_name = $first_name.'_document_'.date("Y_m_d_h_i_sa").'.'.$request->file('document')->getClientOriginalExtension();
+                $request->file('document')->storeAs('public/uploads/document', $docment_name);
+                $student->document = $docment_name;
+            }
+
             $student->name = $request->fname.' '.$request->lname;
             $student->phone = $request->phone;
             $student->email = $request->email;
@@ -153,7 +174,6 @@ class PubController extends Controller
             $student->address = $request->address;
             $student->role_id = 3;
             $student->password = Hash::make($request->password);
-            $student->document = $docment_name;
             $student->save();
     
             $subject = 'New application received.';
@@ -164,7 +184,9 @@ class PubController extends Controller
             Thank you <br>
             Media TTC.
             ';
-    
+
+    // 'mttijamalpur@gmail.com'
+
             Mail::to('mttijamalpur@gmail.com')->send(new SendMail($subject, $body));
         }
 
@@ -173,6 +195,25 @@ class PubController extends Controller
     }
 
 
+    public function result(){
+
+        $courses = course::all();
+
+        return view('public_view.result', compact('courses'));
+
+    }
+    
+
+    public function result_check(Request $request){
+
+        $result_check = student::where('serial_no', $request->serial_no)->first();
+        
+        $courses = course::all();
+
+        return view('public_view.result', compact('result_check', 'courses'));
+
+    }
+    
 
 
 

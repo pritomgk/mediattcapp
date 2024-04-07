@@ -214,7 +214,7 @@
                 <p class="text-warning text-center"> You may provide .zip file..</p>
                 <div class="col-md-12 form-group">
                     <label for="document"><span class="text-warning">*</span> Document</label>
-                    <input type="file" id="document" required name="document" class="form-control form-control-lg" />
+                    <input type="file" id="document" name="document" class="form-control form-control-lg" />
                     @error('document')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror

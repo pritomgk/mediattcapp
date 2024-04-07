@@ -182,8 +182,7 @@ class AdminUserController extends Controller
         return view('admin_view.common.all_admin_courses', compact('all_admin_courses'));
 
     }
-
-
+   
 
 
 

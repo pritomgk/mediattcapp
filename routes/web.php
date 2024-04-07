@@ -40,6 +40,12 @@ Route::get('/admission', [PubController::class, 'admission']
 Route::post('/admission_apply', [PubController::class, 'admission_apply']
 )->name('admission_apply');
 
+Route::get('/result', [PubController::class, 'result']
+)->name('result');
+
+Route::post('/result_check', [PubController::class, 'result_check']
+)->name('result_check');
+
 // login logout 
 
 Route::get('/login', function () {
@@ -107,6 +113,10 @@ Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
     
     Route::post('/update_courses_info', [CourseController::class, 'update_courses_info']
     )->name('update_courses_info');
+
+
+    // students route 
+
     
     Route::get('/add_students_manually', [StudentController::class, 'add_students_manually']
     )->name('add_students_manually');
@@ -122,6 +132,29 @@ Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
     
     Route::get('/all_deactive_students', [StudentController::class, 'all_deactive_students']
     )->name('all_deactive_students');
+    
+    
+    Route::get('/activate_student/{student_id}', [StudentController::class, 'activate_student']
+    )->name('activate_student');
+    
+    
+    Route::get('/deactivate_student/{student_id}', [StudentController::class, 'deactivate_student']
+    )->name('deactivate_student');
+    
+    
+    Route::get('/delete_student/{student_id}', [StudentController::class, 'delete_student']
+    )->name('delete_student');
+        
+    Route::get('/admin_update_student/{student_id}', [StudentController::class, 'admin_update_student']
+    )->name('admin_update_student');
+    
+        
+    Route::post('/admin_update_student_info', [StudentController::class, 'admin_update_student_info']
+    )->name('admin_update_student_info');
+    
+        
+    Route::get('/test_mail', [AdminUserController::class, 'test_mail']
+    )->name('test_mail');
     
 
 

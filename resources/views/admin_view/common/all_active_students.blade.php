@@ -23,6 +23,7 @@
                 <thead>
                     <tr>
                         <th>Sl</th>
+                        <th>Serial NO.</th>
                         <th>Name</th>
                         <th>Fathers Name</th>
                         <th>Certificate Serial</th>
@@ -35,6 +36,7 @@
                 <tfoot>
                     <tr>
                         <th>Sl</th>
+                        <th>Serial NO.</th>
                         <th>Name</th>
                         <th>Fathers Name</th>
                         <th>Certificate Serial</th>
@@ -51,6 +53,7 @@
                     @foreach ($all_active_students as $active_student)
                         <tr>
                             <td>{{ $sl }}</td>
+                            <td>{{ $active_student->serial_no }}</td>
                             <td>{{ $active_student->name }}</td>
                             <td>{{ $active_student->father_name }}</td>
                             <td>{{ $active_student->certificate_serial }}</td>
@@ -58,9 +61,9 @@
                             <td>{{ $active_student->grade }}</td>
                             <td>{{ $active_student->address }}</td>
                             <td>
-                                {{-- <a href="{{ route('update_courses', ['course_id'=>$course->course_id]) }}" class="btn btn-sm btn-warning">Update</a> --}}
+                                <a href="{{ route('admin_update_student', ['student_id'=>$active_student->student_id]) }}" class="btn btn-sm btn-warning">Update</a>
                                 <br><br>
-                                {{-- <a href="{{ route('delete_courses_info', ['course_id'=>$course->course_id]) }}" class="btn btn-sm btn-danger">Delete</a> --}}
+                                <a href="{{ route('deactivate_student', ['student_id'=>$active_student->student_id]) }}" class="btn btn-sm btn-danger">Deactivate</a>
                             </td>
                         </tr>
                         @php

@@ -24,6 +24,7 @@
                     <tr>
                         <th>Sl</th>
                         <th>Name</th>
+                        <th>Serial NO.</th>
                         <th>Fathers Name</th>
                         <th>Certificate Serial</th>
                         <th>Registration NO.</th>
@@ -36,6 +37,7 @@
                 <tfoot>
                     <tr>
                         <th>Sl</th>
+                        <th>Serial NO.</th>
                         <th>Name</th>
                         <th>Fathers Name</th>
                         <th>Certificate Serial</th>
@@ -53,6 +55,7 @@
                     @foreach ($all_deactive_students as $deactive_student)
                         <tr>
                             <td>{{ $sl }}</td>
+                            <td>{{ $deactive_student->serial_no }}</td>
                             <td>{{ $deactive_student->name }}</td>
                             <td>{{ $deactive_student->father_name }}</td>
                             <td>{{ $deactive_student->certificate_serial }}</td>
@@ -61,9 +64,9 @@
                             <td>{{ $deactive_student->address }}</td>
                             <td><a class="btn btn-success" href="{{ asset('storage/uploads/document/'.$deactive_student->document) }}" download="{{ $deactive_student->document }}">Download</a></td>
                             <td>
-                                {{-- <a href="{{ route('update_courses', ['course_id'=>$course->course_id]) }}" class="btn btn-sm btn-warning">Update</a> --}}
+                                <a href="{{ route('activate_student', ['student_id'=>$deactive_student->student_id]) }}" class="btn btn-sm btn-warning">Admit</a>
                                 <br><br>
-                                {{-- <a href="{{ route('delete_courses_info', ['course_id'=>$course->course_id]) }}" class="btn btn-sm btn-danger">Delete</a> --}}
+                                <a href="{{ route('delete_student', ['student_id'=>$deactive_student->student_id]) }}" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>
                         @php
