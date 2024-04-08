@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Route;
 // public page routes 
 
 
-Route::get('/', [PubController::class, 'home']
+Route::get('/home', [PubController::class, 'home']
 )->name('home');
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return redirect()->route('home');
 });
 
