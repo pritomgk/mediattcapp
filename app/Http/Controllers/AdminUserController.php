@@ -230,6 +230,22 @@ class AdminUserController extends Controller
             Mail::to($admin_user->email)->send(new SendMail($subject_admin_request, $body_admin_request));
 
         }
+        if ($request->status == 0) {
+                
+            $subject_admin_request = 'Admin approval.';
+
+                
+            $body_admin_request = '
+            Hello Sir, <br><br>
+            Your admin request in MediaTTC was deactivated by an Admin. <br> <br>
+            To know more, please contact us. <br>
+            Thank you, <br>
+            MediaTTC.
+            ';
+
+            Mail::to($admin_user->email)->send(new SendMail($subject_admin_request, $body_admin_request));
+
+        }
 
         return redirect()->back()->with('success', 'Admin Updated..!');
 
