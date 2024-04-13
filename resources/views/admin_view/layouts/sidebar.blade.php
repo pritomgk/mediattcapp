@@ -5,7 +5,8 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    {{-- <i class="fas fa-laugh-wink"></i> --}}
+                    <img src="{{ asset('pv_assets/images/logo.png') }}" alt="MediaTTC">
                 </div>
                 <div class="sidebar-brand-text mx-3">MediaTTC</div>
             </a>
