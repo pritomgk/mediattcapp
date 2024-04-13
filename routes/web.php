@@ -153,9 +153,25 @@ Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
     )->name('admin_update_student_info');
     
         
-    Route::get('/test_mail', [AdminUserController::class, 'test_mail']
-    )->name('test_mail');
+    // Route::get('/test_mail', [AdminUserController::class, 'test_mail']
+    // )->name('test_mail');
     
+
+    // admin controll routes 
+
+        
+    Route::get('/all_admins', [AdminUserController::class, 'all_admins']
+    )->name('all_admins');
+    
+        
+    Route::post('/update_admin', [AdminUserController::class, 'update_admin']
+    )->name('update_admin');
+    
+        
+    Route::get('/delete_admin/{admin_id}', [AdminUserController::class, 'delete_admin']
+    )->name('delete_admin');
+    
+
 
 
 });

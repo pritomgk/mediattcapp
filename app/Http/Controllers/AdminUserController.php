@@ -194,6 +194,61 @@ class AdminUserController extends Controller
     }
    
 
+    
+    public function all_admins(){
+
+        $all_admins = admin_user::all();
+
+        return view('admin_view.common.all_admins', compact('all_admins'));
+
+    }
+   
+    
+    public function update_admin(Request $request){
+
+        $admin_user = admin_user::find($request->admin_id);
+
+        $admin_user->status = $request->status;
+
+        $admin_user->role_id = $request->role_id;
+
+        $admin_user->update();
+
+        if ($request->status == 1) {
+                
+            $subject_admin_request = 'Admin approval.';
+
+                
+            $body_admin_request = '
+            Hello Sir, <br><br>
+            Your admin request in MediaTTC was approved by an Admin. <br> <br>
+            Check your <a href='.route('dashboard').'>Dashboar</a>. <br>
+            Thank you, <br>
+            MediaTTC.
+            ';
+
+            Mail::to($admin_user->email)->send(new SendMail($subject_admin_request, $body_admin_request));
+
+        }
+
+        return redirect()->back()->with('success', 'Admin Updated..!');
+
+    }
+   
+    
+    public function delete_admin($admin_id){
+
+        $admin_user = admin_user::find($admin_id);
+
+        $admin_user = admin_user::find($admin_id);
+
+        $admin_user->delete();
+
+        return redirect()->back()->with('error', 'Admin Deleted..!');
+
+    }
+   
+
 
 
     
