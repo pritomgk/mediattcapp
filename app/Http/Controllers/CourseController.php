@@ -47,7 +47,7 @@ class CourseController extends Controller
         
         if ($request->content != '') {
             $content_name = $first_name.'_content_'.date("Y_m_d_h_i_sa").'.'.$request->file('content')->getClientOriginalExtension();
-            $request->file('content')->move('public/uploads/courses', $content_name);
+            $request->file('content')->move('public/storage/uploads/courses', $content_name);
         }
 
         $course = new course();
@@ -122,7 +122,7 @@ class CourseController extends Controller
 
             $first_name = $request->title;
             $content_name = $first_name.'_content_'.date("Y_m_d_h_i_sa").'.'.$request->file('content')->getClientOriginalExtension();
-            $request->file('content')->move('public/uploads/courses', $content_name);
+            $request->file('content')->move('public/storage/uploads/courses', $content_name);
             $update_course_info->content = $content_name;
         }
         $update_course_info->update();
