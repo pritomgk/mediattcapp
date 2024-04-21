@@ -1,7 +1,7 @@
 @extends('admin_view.layouts.app')
 
 @section('title')
-    MediaTTC - All Active Students
+    MediaTTC - Selected Course Students
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">All Active Students</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Selected Course Students</h6>
     </div>
     @if (session()->has('error'))
       <p class="mb-0 alert alert-danger">{{ session()->get('error') }}</p>
