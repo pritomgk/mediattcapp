@@ -1,7 +1,7 @@
 @extends('public_view.layout.app')
 
 @section('title')
-  Media TTC - Admission
+  Media TTC - Result
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
             @csrf
             <div class="row">
                 <div class="col-md-6 form-group mb-4 mx-auto text-center">
-                    <h3>Apply For Admission</h3>
+                    <h3>Check Result</h3>
                 </div>
             </div>
             @if (session()->has('error'))
@@ -52,15 +52,19 @@
             </div>
         </form>
         @if (!empty($result_check))
-        <div class="row mt-5">
-            <div class="col-12 text-center">
-                <p>
-                    <b>Name :</b> {{ $result_check->name }} <br>
-                    <b>Father's Name :</b> {{ $result_check->father_name }} <br>
-                    <b>Serial NO. :</b> {{ $result_check->serial_no }} <br>
-                    <b>Registration NO. :</b> {{ $result_check->regi_no }} <br>
-                    <b>Grade :</b> {{ $result_check->grade }} <br>
-                    <b>Address :</b> {{ $result_check->address }} <br>
+        <div class="row mt-5 mb-3">
+            <hr>
+            <div class="col-12 text-center mt-3">
+                <p class="mt-3">
+                    <div class="mt-3 mb-5"><img width="197px" height="236.333333333px" src="{{ asset('storage/uploads/document/'.$result_check->document) }}"></div>
+                    <div class="mt-3">
+                        <b>Name :</b> {{ $result_check->name }} <br>
+                        <b>Father's Name :</b> {{ $result_check->father_name }} <br>
+                        <b>Serial NO. :</b> {{ $result_check->serial_no }} <br>
+                        <b>Registration NO. :</b> {{ $result_check->regi_no }} <br>
+                        <b>Grade :</b> {{ $result_check->grade }} <br>
+                        <b>Address :</b> {{ $result_check->address }} <br>
+                    </div>
                 </p>
             </div>
         </div>

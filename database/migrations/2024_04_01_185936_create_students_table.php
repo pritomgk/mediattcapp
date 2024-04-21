@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('birth_date')->nullable();
             $table->unsignedBigInteger('serial_no')->nullable();
             $table->unsignedBigInteger('roll_no')->nullable();
-            $table->unsignedBigInteger('ssc_roll_no')->nullable()->unique();
+            $table->unsignedBigInteger('ssc_roll_no')->nullable();
             $table->unsignedBigInteger('hsc_roll_no')->nullable();
             $table->string('ssc_year')->nullable();
             $table->string('hsc_year')->nullable();

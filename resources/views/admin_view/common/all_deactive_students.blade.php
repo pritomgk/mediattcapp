@@ -26,6 +26,7 @@
                         <th>Name</th>
                         <th>Serial NO.</th>
                         <th>Fathers Name</th>
+                        <th>Course</th>
                         <th>Certificate Serial</th>
                         <th>Registration NO.</th>
                         <th>Grade</th>
@@ -40,6 +41,7 @@
                         <th>Serial NO.</th>
                         <th>Name</th>
                         <th>Fathers Name</th>
+                        <th>Course</th>
                         <th>Certificate Serial</th>
                         <th>Registration NO.</th>
                         <th>Grade</th>
@@ -58,11 +60,22 @@
                             <td>{{ $deactive_student->serial_no }}</td>
                             <td>{{ $deactive_student->name }}</td>
                             <td>{{ $deactive_student->father_name }}</td>
+                            <td>
+                                @foreach($deactive_student_courses as $deactive_student_course)
+                                @if($deactive_student_course->course_id == $deactive_student->course_id)
+                                {{ $deactive_student_course->title }}
+                                @endif
+                                @endforeach
+                            </td>
                             <td>{{ $deactive_student->certificate_serial }}</td>
                             <td>{{ $deactive_student->regi_no }}</td>
                             <td>{{ $deactive_student->grade }}</td>
                             <td>{{ $deactive_student->address }}</td>
-                            <td><a class="btn btn-success" href="{{ asset('storage/uploads/document/'.$deactive_student->document) }}" download="{{ $deactive_student->document }}">Download</a></td>
+                            <td>
+                                @if($deactive_student->document != '')
+                                    <a href="{{ asset('storage/uploads/document/'.$deactive_student->document) }}" download="{{ $deactive_student->document }}"><img width="118.2px" height="141.8px" src="{{ asset('storage/uploads/document/'.$deactive_student->document) }}"></a>
+                                @endif
+                            </td>
                             <td>
                                 <a href="{{ route('activate_student', ['student_id'=>$deactive_student->student_id]) }}" class="btn btn-sm btn-warning">Admit</a>
                                 <br><br>

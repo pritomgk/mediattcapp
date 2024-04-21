@@ -118,7 +118,7 @@
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label for="ssc_roll_no"><span class="text-warning">*</span> SSC Roll NO.</label>
-                    <input type="text" id="ssc_roll_no" required name="ssc_roll_no" class="form-control form-control-lg" />
+                    <input type="number" id="ssc_roll_no" required name="ssc_roll_no" class="form-control form-control-lg" />
                     @error('ssc_roll_no')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
@@ -131,7 +131,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-6 form-group">
                     <label for="ssc_year"> SSC Year</label>
                     <input type="text" id="ssc_year" name="ssc_year" class="form-control form-control-lg" />
@@ -146,8 +146,8 @@
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
                 </div>
-            </div>
-            <div class="row">
+            </div> -->
+            <!-- <div class="row">
                 <div class="col-md-12 form-group">
                     <label for="ssc_from"> SSC Passing Institution</label>
                     <input type="text" id="ssc_from" name="ssc_from" class="form-control form-control-lg" />
@@ -180,7 +180,7 @@
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
                 </div>
-            </div>
+            </div> -->
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label for="ssc_grade"><span class="text-warning">*</span> SSC Passing Grade</label>
@@ -234,21 +234,15 @@
                 </div>
             </div>
             <div class="row">
-                <p class="text-warning text-center"> You may provide .zip file..</p>
+                <p class="text-warning text-center"> You have to provide passport size photo..</p>
                 <div class="col-md-12 form-group">
-                    <label for="document"> Document</label>
+                    <label for="document"> Photo</label>
                     <input type="file" id="document" name="document" class="form-control form-control-lg" />
                     @error('document')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
                 </div>
             </div>
-            {{-- <div class="row">
-                <div class="col-md-12 form-group">
-                    <label for="message">Message</label>
-                    <textarea name id="message" cols="30" rows="10" class="form-control"></textarea>
-                </div>
-            </div> --}}
             <div class="row">
                 <div class="col-12 text-center">
                     <input type="submit" value="Add Student" class="btn btn-primary btn-lg px-5" />

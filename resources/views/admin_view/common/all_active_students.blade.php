@@ -24,8 +24,10 @@
                     <tr>
                         <th>Sl</th>
                         <th>Serial NO.</th>
+                        <th>Photo</th>
                         <th>Name</th>
                         <th>Fathers Name</th>
+                        <th>Course</th>
                         <th>Certificate Serial</th>
                         <th>Registration NO.</th>
                         <th>Grade</th>
@@ -37,8 +39,10 @@
                     <tr>
                         <th>Sl</th>
                         <th>Serial NO.</th>
+                        <th>Photo</th>
                         <th>Name</th>
                         <th>Fathers Name</th>
+                        <th>Course</th>
                         <th>Certificate Serial</th>
                         <th>Registration NO.</th>
                         <th>Grade</th>
@@ -54,8 +58,20 @@
                         <tr>
                             <td>{{ $sl }}</td>
                             <td>{{ $active_student->serial_no }}</td>
+                            <td>
+                                @if($active_student->document != '')
+                                <a href="{{ asset('storage/uploads/document/'.$active_student->document) }}" download="{{ $active_student->document }}"><img width="118.2px" height="141.8px" src="{{ asset('storage/uploads/document/'.$active_student->document) }}"></a>
+                                @endif
+                            </td>
                             <td>{{ $active_student->name }}</td>
                             <td>{{ $active_student->father_name }}</td>
+                            <td>
+                                @foreach($active_student_courses as $active_student_course)
+                                @if($active_student_course->course_id == $active_student->course_id)
+                                {{ $active_student_course->title }}
+                                @endif
+                                @endforeach
+                            </td>
                             <td>{{ $active_student->certificate_serial }}</td>
                             <td>{{ $active_student->regi_no }}</td>
                             <td>{{ $active_student->grade }}</td>
@@ -64,6 +80,8 @@
                                 <a href="{{ route('admin_update_student', ['student_id'=>$active_student->student_id]) }}" class="btn btn-sm btn-warning">Update</a>
                                 <br><br>
                                 <a href="{{ route('deactivate_student', ['student_id'=>$active_student->student_id]) }}" class="btn btn-sm btn-danger">Deactivate</a>
+                                <br><br>
+                                <a href="{{ route('delete_student', ['student_id'=>$active_student->student_id]) }}" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>
                         @php

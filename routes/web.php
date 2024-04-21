@@ -157,19 +157,21 @@ Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
     // )->name('test_mail');
     
 
-    // admin controll routes 
+    // admin control routes 
 
         
-    Route::get('/all_admins', [AdminUserController::class, 'all_admins']
-    )->name('all_admins');
-    
+    Route::middleware('admin')->group(function (){
+        Route::get('/all_admins', [AdminUserController::class, 'all_admins']
+        )->name('all_admins');
         
-    Route::post('/update_admin', [AdminUserController::class, 'update_admin']
-    )->name('update_admin');
-    
+            
+        Route::post('/update_admin', [AdminUserController::class, 'update_admin']
+        )->name('update_admin');
         
-    Route::get('/delete_admin/{admin_id}', [AdminUserController::class, 'delete_admin']
-    )->name('delete_admin');
+            
+        Route::get('/delete_admin/{admin_id}', [AdminUserController::class, 'delete_admin']
+        )->name('delete_admin');
+    });
     
 
 

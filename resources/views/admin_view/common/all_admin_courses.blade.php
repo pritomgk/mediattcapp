@@ -26,6 +26,8 @@
                         <th>Title</th>
                         <th>Tagline</th>
                         <th>Teacher</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
                         <th>Starts At</th>
                         <th>Ends At</th>
                         <th>Description</th>
@@ -42,6 +44,8 @@
                         <th>Title</th>
                         <th>Tagline</th>
                         <th>Teacher</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
                         <th>Starts At</th>
                         <th>Ends At</th>
                         <th>Description</th>
@@ -62,6 +66,8 @@
                             <td>{{ $course->title }}</td>
                             <td>{{ $course->tagline }}</td>
                             <td>{{ $course->teacher_name }}</td>
+                            <td>{{ $course->start_date }}</td>
+                            <td>{{ $course->end_date }}</td>
                             <td>{{ $course->start_time }}</td>
                             <td>{{ $course->end_time }}</td>
                             <td>{{ $course->description }}</td>

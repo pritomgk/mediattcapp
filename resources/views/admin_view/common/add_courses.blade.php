@@ -59,6 +59,22 @@
             </div>
             <div class="row">
                 <div class="col-md-6 form-group">
+                    <label for="start_date"><span class="text-warning">*</span> Start Date</label>
+                    <input type="date" id="start_date" required name="start_date" class="form-control form-control-lg" />
+                    @error('start_date')
+                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="end_date"><span class="text-warning">*</span> End Date</label>
+                    <input type="date" id="end_date" required name="end_date" class="form-control form-control-lg" />
+                    @error('end_time')
+                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
                     <label for="start_time"><span class="text-warning">*</span> Starts At</label>
                     <input type="time" id="start_time" required name="start_time" class="form-control form-control-lg" />
                     @error('start_time')

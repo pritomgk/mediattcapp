@@ -50,7 +50,7 @@
             <!-- Nav Item - Students Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#students" aria-expanded="true" aria-controls="students">
-                    <i class="fas fa-book"></i>
+                    <i class="fa fa-user" aria-hidden="true"></i>
                     <span>Students</span>
                 </a>
                 <div id="students" class="collapse" aria-labelledby="headingUtilities"
@@ -64,21 +64,25 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Admin_Panel Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdmin_Panel"
-                    aria-expanded="true" aria-controls="collapseAdmin_Panel">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Admin Panel</span>
-                </a>
-                <div id="collapseAdmin_Panel" class="collapse" aria-labelledby="headingAdmin_Panel"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Admin Panel:</h6>
-                        <a class="collapse-item" href="{{ route('all_admins') }}">All Admins</a>
+            @if(session()->get('role_id') == 1)
+
+                <!-- Nav Item - Admin_Panel Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdmin_Panel"
+                        aria-expanded="true" aria-controls="collapseAdmin_Panel">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Admin Panel</span>
+                    </a>
+                    <div id="collapseAdmin_Panel" class="collapse" aria-labelledby="headingAdmin_Panel"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Admin Panel:</h6>
+                            <a class="collapse-item" href="{{ route('all_admins') }}">All Admins</a>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
+
+            @endif
 
             <!-- Nav Item - Utilities Collapse Menu -->
             {{-- <li class="nav-item">

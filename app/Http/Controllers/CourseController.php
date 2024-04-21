@@ -37,12 +37,18 @@ class CourseController extends Controller
             "title" => "required",
             "start_time" => "required",
             "end_time" => "required",
+            "start_date" => "required",
+            "end_date" => "required",
             "content"=> "required|max:5120",
         ]);
         
         $first_name = $request->title;
-        $content_name = $first_name.'_content_'.date("Y_m_d_h_i_sa").'.'.$request->file('content')->getClientOriginalExtension();
-        $request->file('content')->storeAs('public/uploads/courses', $content_name);
+        $content_name = null;
+        
+        if ($request->content != '') {
+            $content_name = $first_name.'_content_'.date("Y_m_d_h_i_sa").'.'.$request->file('content')->getClientOriginalExtension();
+            $request->file('content')->move('public/uploads/courses', $content_name);
+        }
 
         $course = new course();
         $course->title = $request->title;
@@ -51,6 +57,8 @@ class CourseController extends Controller
         $course->description = $request->description;
         $course->start_time = $request->start_time;
         $course->end_time = $request->end_time;
+        $course->start_date = $request->start_date;
+        $course->end_date = $request->end_date;
         $course->content = $content_name;
         $course->save();
         
@@ -62,7 +70,9 @@ class CourseController extends Controller
 
         $delete_course = course::find($course_id);
 
-        unlink(public_path('storage/uploads/courses/'.$delete_course->content));
+        if (file_exists(public_path('storage/uploads/courses/'.$delete_course->content))) {
+            unlink(public_path('storage/uploads/courses/'.$delete_course->content));
+        }
 
         $delete_course->delete();
         
@@ -84,7 +94,8 @@ class CourseController extends Controller
             "title" => "required",
             "start_time" => "required",
             "end_time" => "required",
-            "content"=> "max:5120",
+            "start_date" => "required",
+            "end_date" => "required",
         ]);
         
         $update_course_info = course::find($request->course_id);
@@ -98,13 +109,20 @@ class CourseController extends Controller
         
         if (!empty($request->content)) {
 
+
+            $request->validate([
+                "content"=> "max:5120",
+            ]);
+
             if (!empty($update_course_info->content)) {
-                unlink(public_path('storage/uploads/courses/'.$update_course_info->content));
+                if (file_exists(public_path('storage/uploads/courses/'.$update_course_info->content))) {
+                    unlink(public_path('storage/uploads/courses/'.$update_course_info->content));
+                }
             }
 
             $first_name = $request->title;
             $content_name = $first_name.'_content_'.date("Y_m_d_h_i_sa").'.'.$request->file('content')->getClientOriginalExtension();
-            $request->file('content')->storeAs('public/uploads/courses', $content_name);
+            $request->file('content')->move('public/uploads/courses', $content_name);
             $update_course_info->content = $content_name;
         }
         $update_course_info->update();

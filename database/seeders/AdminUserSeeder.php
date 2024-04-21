@@ -18,7 +18,18 @@ class AdminUserSeeder extends Seeder
             'name' => 'Pritom GK',
             'email' => 'pritomguha62@gmail.com',
             'status' => 1,
+            'email_verified' => 1,
+            'verify_token' => 657434,
             'password' => Hash::make('Pritomgk@12#'),
+        ]);
+
+        admin_user::create([
+            'name' => 'Holy It',
+            'email' => 'holy.it01@gmail.com',
+            'status' => 1,
+            'email_verified' => 1,
+            'verify_token' => 654434,
+            'password' => Hash::make('Holyit@1990'),
         ]);
     }
 }

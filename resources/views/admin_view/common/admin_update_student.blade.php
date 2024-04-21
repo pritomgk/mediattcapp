@@ -111,7 +111,7 @@
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label for="ssc_roll_no"><span class="text-warning">*</span> SSC Roll NO.</label>
-                    <input type="text" id="ssc_roll_no" required value="{{ $admin_update_student->ssc_roll_no }}" name="ssc_roll_no" class="form-control form-control-lg" />
+                    <input type="number" id="ssc_roll_no" required value="{{ $admin_update_student->ssc_roll_no }}" name="ssc_roll_no" class="form-control form-control-lg" />
                     @error('ssc_roll_no')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
@@ -231,9 +231,9 @@
                 </div>
             </div>
             <div class="row">
-                <p class="text-warning text-center"> You may provide .zip file..</p>
+                <p class="text-warning text-center"> You have to provide passport size photo..</p>
                 <div class="col-md-12 form-group">
-                    <label for="document"> Document</label>
+                    <label for="document"> Photo</label>
                     <input type="file" id="document" name="document" class="form-control form-control-lg" />
                     <input type="hidden" hidden id="student_id" value="{{ $admin_update_student->student_id }}" name="student_id" class="form-control form-control-lg" />
                     @error('document')

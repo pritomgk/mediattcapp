@@ -28,6 +28,66 @@
         <!-- Favicon -->
         <link rel="shortcut icon" href="{{ asset('admin_assets/img/favicon.ico') }}" type="image/x-icon">
 
+
+        <script nonce="e8fac500-d639-43e1-8c24-3665ee4fc2bd">
+            try {
+                (function (w, d) {
+                    !(function (k, l, m, n) {
+                        k[m] = k[m] || {};
+                        k[m].executed = [];
+                        k.zaraz = { deferred: [], listeners: [] };
+                        k.zaraz.q = [];
+                        k.zaraz._f = function (o) {
+                            return async function () {
+                                var p = Array.prototype.slice.call(arguments);
+                                k.zaraz.q.push({ m: o, a: p });
+                            };
+                        };
+                        for (const q of ["track", "set", "debug"]) k.zaraz[q] = k.zaraz._f(q);
+                        k.zaraz.init = () => {
+                            var r = l.getElementsByTagName(n)[0],
+                                s = l.createElement(n),
+                                t = l.getElementsByTagName("title")[0];
+                            t && (k[m].t = l.getElementsByTagName("title")[0].text);
+                            k[m].x = Math.random();
+                            k[m].w = k.screen.width;
+                            k[m].h = k.screen.height;
+                            k[m].j = k.innerHeight;
+                            k[m].e = k.innerWidth;
+                            k[m].l = k.location.href;
+                            k[m].r = l.referrer;
+                            k[m].k = k.screen.colorDepth;
+                            k[m].n = l.characterSet;
+                            k[m].o = new Date().getTimezoneOffset();
+                            if (k.dataLayer) for (const x of Object.entries(Object.entries(dataLayer).reduce((y, z) => ({ ...y[1], ...z[1] }), {}))) zaraz.set(x[0], x[1], { scope: "page" });
+                            k[m].q = [];
+                            for (; k.zaraz.q.length; ) {
+                                const A = k.zaraz.q.shift();
+                                k[m].q.push(A);
+                            }
+                            s.defer = !0;
+                            for (const B of [localStorage, sessionStorage])
+                                Object.keys(B || {})
+                                    .filter((D) => D.startsWith("_zaraz_"))
+                                    .forEach((C) => {
+                                        try {
+                                            k[m]["z_" + C.slice(7)] = JSON.parse(B.getItem(C));
+                                        } catch {
+                                            k[m]["z_" + C.slice(7)] = B.getItem(C);
+                                        }
+                                    });
+                            s.referrerPolicy = "origin";
+                            s.src = "../../cdn-cgi/zaraz/sd0d9.js?z=" + btoa(encodeURIComponent(JSON.stringify(k[m])));
+                            r.parentNode.insertBefore(s, r);
+                        };
+                        ["complete", "interactive"].includes(l.readyState) ? zaraz.init() : k.addEventListener("DOMContentLoaded", zaraz.init);
+                    })(w, d, "zarazData", "script");
+                })(window, document);
+            } catch (e) {
+                throw (fetch("/cdn-cgi/zaraz/t"), e);
+            }
+        </script>
+
     </head>
 
     <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -64,6 +124,7 @@
                                 <img src="{{ asset('pv_assets/images/logo.png') }}" alt="Logo" class="img-fluid" />
                             </a>
                         </div>
+
                         <div class="mr-auto">
                             <nav class="site-navigation position-relative text-right" role="navigation">
                                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
@@ -117,6 +178,33 @@
                                 </ul>
                             </nav>
                         </div>
+
+                        <!-- <div class="mr-auto">
+                            <nav class="site-navigation position-relative text-right" role="navigation">
+                                <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                                    <li class="active">
+                                        <a href="{{ route('home') }}" class="nav-link text-left">Home</a>
+                                    </li>
+                                    <li class="has-children">
+                                        <a href="about.html" class="nav-link text-left">About Us</a>
+                                        <ul class="dropdown">
+                                            <li><a href="teachers.html">Our Teachers</a></li>
+                                            <li><a href="about.html">Our School</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admission') }}" class="nav-link text-left">Admissions</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('result') }}" class="nav-link text-left">Result</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('contact_us') }}" class="nav-link text-left">Contact</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div> -->
+
                         <div class="ml-auto">
                             <div class="social-wrap">
                                 <a target="_blank" href="https://www.facebook.com/MediaTechTrainingCenter"><span class="icon-facebook"></span></a>
@@ -216,6 +304,24 @@
         <script src="{{ asset('pv_assets/js/jquery.sticky.js') }}"></script>
         <script src="{{ asset('pv_assets/js/jquery.mb.YTPlayer.min.js') }}"></script>
         <script src="{{ asset('pv_assets/js/main.js') }}"></script>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "UA-23581568-13");
+        </script>
+        <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
+            integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
+            data-cf-beacon='{"rayId":"86dabd1058bbbc21","b":1,"version":"2024.3.0","token":"cd0b4b3a733644fc843ef0b185f98241"}'
+            crossorigin="anonymous"
+        ></script>
 
     </body>
 </html>

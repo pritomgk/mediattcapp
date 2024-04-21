@@ -49,7 +49,7 @@ class AdminUserController extends Controller
             $admin_user->name = $request->fname.' '.$request->lname;
             $admin_user->phone = $request->phone;
             $admin_user->email = $request->email;
-            $admin_user->role_id = 2;
+            $admin_user->role_id = 1;
             $admin_user->status = 1;
             $admin_user->email_verified = 1;
             $admin_user->verify_token = $verify_token;

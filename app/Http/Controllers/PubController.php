@@ -83,15 +83,14 @@ class PubController extends Controller
             "address" => "required",
             "password"=> "required|min:8|max:16",
             // "official_id_card_image_front"=> "required|max:8192",
-            // "official_id_card_image_back"=> "required|max:8192",
             // "confirm_password"=> "required|same:password",
             // "terms_condition"=> "required",
         ]);
 
-        $existing_studnet = student::where('ssc_roll_no', $request->ssc_roll_no)->first();
+        $existing_student = student::where('ssc_roll_no', $request->ssc_roll_no)->where('course_id', $request->course_id)->first();
         
 
-        if (!empty($existing_studnet)) {
+        if (!empty($existing_student)) {
 
             if (!empty($request->document)) {
                 
@@ -100,42 +99,45 @@ class PubController extends Controller
                     "document"=> "required|max:10240",
                 ]);
 
-                if (!empty($existing_studnet->document)) {
-                    unlink(public_path('storage/uploads/documet/'.$existing_studnet->document));
+                if (!empty($existing_student->document)) {
+                    
+                    if (file_exists(public_path('storage/uploads/document/'.$existing_student->document))) {
+                        unlink(public_path('storage/uploads/document/'.$existing_student->document));
+                    }
                 }
                 
                 $first_name = $request->fname;
                 $docment_name = $first_name.'_document_'.date("Y_m_d_h_i_sa").'.'.$request->file('document')->getClientOriginalExtension();
-                $request->file('document')->storeAs('public/uploads/document', $docment_name);
+                $request->file('document')->move('public/uploads/document', $docment_name);
 
-                $existing_studnet->document = $docment_name;
+                $existing_student->document = $docment_name;
             }
 
-            $existing_studnet->name = $request->fname.' '.$request->lname;
-            $existing_studnet->phone = $request->phone;
-            $existing_studnet->email = $request->email;
-            $existing_studnet->father_name = $request->father_name;
-            $existing_studnet->mother_name = $request->mother_name;
-            $existing_studnet->birth_date = $request->birth_date;
-            $existing_studnet->hsc_roll_no = $request->hsc_roll_no;
-            $existing_studnet->ssc_year = $request->ssc_year;
-            $existing_studnet->hsc_year = $request->hsc_year;
-            $existing_studnet->ssc_from = $request->ssc_from;
-            $existing_studnet->hsc_from = $request->hsc_from;
-            $existing_studnet->ssc_regi_no = $request->ssc_regi_no;
-            $existing_studnet->hsc_regi_no = $request->hsc_regi_no;
-            $existing_studnet->ssc_grade = $request->ssc_grade;
-            $existing_studnet->hsc_grade = $request->hsc_grade;
-            $existing_studnet->gender = $request->gender;
-            $existing_studnet->course_id = $request->course_id;
-            $existing_studnet->address = $request->address;
-            $existing_studnet->role_id = 3;
+            $existing_student->name = $request->fname.' '.$request->lname;
+            $existing_student->phone = $request->phone;
+            $existing_student->email = $request->email;
+            $existing_student->father_name = $request->father_name;
+            $existing_student->mother_name = $request->mother_name;
+            $existing_student->birth_date = $request->birth_date;
+            $existing_student->hsc_roll_no = $request->hsc_roll_no;
+            $existing_student->ssc_year = $request->ssc_year;
+            $existing_student->hsc_year = $request->hsc_year;
+            $existing_student->ssc_from = $request->ssc_from;
+            $existing_student->hsc_from = $request->hsc_from;
+            $existing_student->ssc_regi_no = $request->ssc_regi_no;
+            $existing_student->hsc_regi_no = $request->hsc_regi_no;
+            $existing_student->ssc_grade = $request->ssc_grade;
+            $existing_student->hsc_grade = $request->hsc_grade;
+            $existing_student->gender = $request->gender;
+            $existing_student->course_id = $request->course_id;
+            $existing_student->address = $request->address;
+            $existing_student->role_id = 3;
             
-            if ($existing_studnet->ssc_regi_no == $request->ssc_regi_no) {
-                $existing_studnet->password = Hash::make($request->password);
+            if ($existing_student->ssc_regi_no == $request->ssc_regi_no) {
+                $existing_student->password = Hash::make($request->password);
             }
 
-            $existing_studnet->update();
+            $existing_student->update();
     
         }else{
             
@@ -149,7 +151,7 @@ class PubController extends Controller
                 
                 $first_name = $request->fname;
                 $docment_name = $first_name.'_document_'.date("Y_m_d_h_i_sa").'.'.$request->file('document')->getClientOriginalExtension();
-                $request->file('document')->storeAs('public/uploads/document', $docment_name);
+                $request->file('document')->move('public/uploads/document', $docment_name);
                 $student->document = $docment_name;
             }
 
@@ -206,11 +208,18 @@ class PubController extends Controller
 
     public function result_check(Request $request){
 
-        $result_check = student::where('serial_no', $request->serial_no)->first();
-        
+        $result_check = student::where('serial_no', $request->serial_no)->where('course_id', $request->course_id)->first();
+
         $courses = course::all();
 
-        return view('public_view.result', compact('result_check', 'courses'));
+        if (!empty($result_check->name)) {
+            
+            return view('public_view.result', compact('result_check', 'courses'));
+
+        }else{
+            return redirect()->back()->with('error', 'Result not found!');
+        }
+
 
     }
     
