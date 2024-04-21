@@ -267,6 +267,18 @@ class StudentController extends Controller
 
     }
 
+    
+    public function view_course_students($course_id){
+        
+        $view_course_students = student::where('course_id', $course_id)->get();
+
+        $course_student_courses = course::all();
+        
+        return view('admin_view.common.view_course_students', compact('view_course_students', 'course_student_courses'));
+
+    }
+
+
 
 
 

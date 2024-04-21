@@ -84,13 +84,8 @@ Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
         return redirect()->route('dashboard');
     });
 
-    // Route::get('/admin/dashboard', function () {
-    //     return view('admin_view.admin.dashboard');
-    // })->name('admin_dashboard')->middleware('email_verified');
 
-    // Route::get('/teacher/dashboard', function () {
-    //     return view('admin_view.teacher.dashboard');
-    // })->name('teacher_dashboard')->middleware('email_verified');
+    // courses route 
 
     Route::get('/all_admin_courses', [AdminUserController::class, 'all_admin_courses']
     )->name('all_admin_courses');
@@ -114,6 +109,7 @@ Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
     Route::post('/update_courses_info', [CourseController::class, 'update_courses_info']
     )->name('update_courses_info');
 
+    
 
     // students route 
 
@@ -151,15 +147,21 @@ Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
         
     Route::post('/admin_update_student_info', [StudentController::class, 'admin_update_student_info']
     )->name('admin_update_student_info');
+
+    
+    Route::get('/view_course_students/{course_id}', [StudentController::class, 'view_course_students']
+    )->name('view_course_students');
+    
+    
+    
+    // admin control routes 
+    
+    
     
         
     // Route::get('/test_mail', [AdminUserController::class, 'test_mail']
     // )->name('test_mail');
     
-
-    // admin control routes 
-
-        
     Route::middleware('admin')->group(function (){
         Route::get('/all_admins', [AdminUserController::class, 'all_admins']
         )->name('all_admins');

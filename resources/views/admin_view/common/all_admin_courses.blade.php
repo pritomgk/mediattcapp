@@ -76,6 +76,8 @@
                             <td>{{ $course->create_time }}</td>
                             <td>{{ $course->update_time }}</td>
                             <td>
+                                <a href="{{ route('view_course_students', ['course_id'=>$course->course_id]) }}" class="btn btn-sm btn-primary">View Students</a>
+                                <br><br>
                                 <a href="{{ route('update_courses', ['course_id'=>$course->course_id]) }}" class="btn btn-sm btn-warning">Update</a>
                                 <br><br>
                                 <a href="{{ route('delete_courses_info', ['course_id'=>$course->course_id]) }}" class="btn btn-sm btn-danger">Delete</a>
