@@ -106,6 +106,8 @@ class CourseController extends Controller
         $update_course_info->description = $request->description;
         $update_course_info->start_time = $request->start_time;
         $update_course_info->end_time = $request->end_time;
+        $update_course_info->start_date = $request->start_date;
+        $update_course_info->end_date = $request->end_date;
         
         if (!empty($request->content)) {
 

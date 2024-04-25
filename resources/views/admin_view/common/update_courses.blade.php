@@ -55,14 +55,14 @@
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label for="start_date"><span class="text-warning">*</span> Starts At</label>
-                    <input type="date" id="start_date" value="{{ $update_course->start_date }}" required name="start_date" class="form-control form-control-lg" />
+                    <input type="date" min="1990-01-31" id="start_date" value="{{ $update_course->start_date }}" required name="start_date" class="form-control form-control-lg" />
                     @error('start_date')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="col-md-6 form-group">
                     <label for="end_date"><span class="text-warning">*</span> Ends At</label>
-                    <input type="date" id="end_date" value="{{ $update_course->end_date }}" required name="end_date" class="form-control form-control-lg" />
+                    <input type="date" min="1990-01-31" id="end_date" value="{{ $update_course->end_date }}" required name="end_date" class="form-control form-control-lg" />
                     @error('end_date')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror

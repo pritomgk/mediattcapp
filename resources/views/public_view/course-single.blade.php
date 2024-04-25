@@ -40,8 +40,9 @@
                             <span>Course Details</span>
                         </h2>
                         
-                        <p><strong class="text-black d-block">Teacher:</strong> {{ $single_course->teacher_name }}</p>
-                        <p class="mb-5"><strong class="text-black d-block">Hours:</strong> <input type="time" value="{{ $single_course->start_time }}" disabled>  &mdash; <input type="time" value="{{ $single_course->end_time }}" disabled></p>
+                        <p><strong class="text-black d-block">Teacher : </strong> {{ $single_course->teacher_name }}</p>
+                        <p class="mb-5"><strong class="text-black d-block">Date : </strong> <br> Month - Day - Year   &mdash;   Month - Day - Year<br> <input type="date" min="1990-01-31" value="{{ $single_course->start_date }}" disabled>  &mdash; <input type="date" min="1990-01-31" value="{{ $single_course->end_date }}" disabled></p> <br>
+                        <p class="mb-5"><strong class="text-black d-block">Hours : </strong> <input type="time" value="{{ $single_course->start_time }}" disabled>  &mdash; <input type="time" value="{{ $single_course->end_time }}" disabled></p>
                         <p>{{ $single_course->description }}</p>
                         {{-- <p>Modi sit dolor repellat esse! Sed necessitatibus itaque libero odit placeat nesciunt, voluptatum totam facere.</p> --}}
     

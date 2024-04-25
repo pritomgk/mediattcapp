@@ -106,7 +106,7 @@ class StudentController extends Controller
         // Media TTC.
         // ';
 // 'mttijamalpur@gmail.com'
-        // Mail::to('pritomguah62@gmail.com')->send(new SendMail($subject, $body));
+        // Mail::to('pritomguha62@gmail.com')->send(new SendMail($subject, $body));
 
         return redirect()->back()->with('success', 'Student Successfully Added..!');
 
