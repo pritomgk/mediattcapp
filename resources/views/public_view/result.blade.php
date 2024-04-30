@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="site-section mt-5">
-    <div class="container mt-5">
+    <div class="container mt-5" id="result">
         <form action="{{ route('result_check') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
@@ -56,14 +56,19 @@
             <hr>
             <div class="col-12 text-center mt-3">
                 <p class="mt-3">
-                    <div class="mt-3 mb-5"><img width="197px" height="236.333333333px" src="{{ asset('storage/uploads/document/'.$result_check->document) }}"></div>
+                    @if (!empty($result_check->document))
+                        <div class="mt-3 mb-5"><img width="197px" height="236.333333333px" src="{{ asset('storage/uploads/document/'.$result_check->document) }}"></div>
+                        @else
+                        <b class="border border-primary">No image..</b>
+                    @endif
                     <div class="mt-3">
                         <b>Name :</b> {{ $result_check->name }} <br>
                         <b>Father's Name :</b> {{ $result_check->father_name }} <br>
                         <b>Serial NO. :</b> {{ $result_check->serial_no }} <br>
                         <b>Registration NO. :</b> {{ $result_check->regi_no }} <br>
                         <b>Grade :</b> {{ $result_check->grade }} <br>
-                        <b>Address :</b> {{ $result_check->address }} <br>
+                        <b>Address :</b> {{ $result_check->address }} <br> <br>
+                        <button class="btn btn-primary" id="download"> Download pdf</button> <br>
                     </div>
                 </p>
             </div>

@@ -87,6 +87,29 @@
                 throw (fetch("/cdn-cgi/zaraz/t"), e);
             }
         </script>
+                
+        <script>
+            window.onload = function () {
+            document.getElementById("download")
+                .addEventListener("click", () => {
+                    const result = this.document.getElementById("result");
+                    console.log(result);
+                    console.log(window);
+                    var opt = {
+                        margin: 1,
+                        filename: 'result.pdf',
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { scale: 2 },
+                        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                    };
+                    html2pdf().from(result).set(opt).save();
+                })
+        }
+
+
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
 
     </head>
 
@@ -104,13 +127,14 @@
             <div class="py-2 bg-light">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-lg-9 d-none d-lg-block">
+                        <div class="col-lg-7 d-none d-lg-block">
                             <a href="#" target="_blank" class="small mr-3"><span class="icon-question-circle-o mr-2"></span> Have a questions?</a>
                             <a href="tel:+8801944715158" target="_blank" class="small mr-3"><span class="icon-phone2 mr-2"></span> +8801944715158</a>
                             <a href="mailto:mttijamalpur@gmail.com" target="_blank" class="small mr-3"><span class="icon-envelope-o mr-2"></span>mttijamalpur@gmail.com</a>
                         </div>
-                        <div class="col-lg-3 text-right">
-                            {{-- <a href="{{ route('login') }}" class="small mr-3"><span class="icon-unlock-alt"></span> Log In</a> --}}
+                        <div class="col-lg-5 text-right">
+                            <a href="{{ route('result') }}" class="small mr-3"><span class="icon-certificate"></span> Individual Result</a>
+                            <a href="{{ route('institution_result_course') }}" class="small mr-3"><span class="icon-certificate"></span> Institute Result</a>
                             <a href="{{ route('login') }}" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users"></span> Log In</a>
                         </div>
                     </div>
@@ -169,8 +193,19 @@
                                     <li>
                                         <a href="{{ route('admission') }}" class="nav-link text-left">Admissions</a>
                                     </li>
-                                    <li>
+                                    <li class="has-children">
                                         <a href="{{ route('result') }}" class="nav-link text-left">Result</a>
+                                        <ul class="dropdown" id="">
+
+                                            <li>
+                                                <a href="{{ route('result') }}">Individual</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="{{ route('institution_result_course') }}">Institution</a>
+                                            </li>
+                                                
+                                        </ul>
                                     </li>
                                     <li>
                                         <a href="{{ route('contact_us') }}" class="nav-link text-left">Contact</a>

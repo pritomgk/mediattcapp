@@ -46,6 +46,12 @@ Route::get('/result', [PubController::class, 'result']
 Route::post('/result_check', [PubController::class, 'result_check']
 )->name('result_check');
 
+Route::get('/institution_result_course', [PubController::class, 'institution_result_course']
+)->name('institution_result_course');
+
+Route::get('/institution_result/{course_id}', [PubController::class, 'institution_result']
+)->name('institution_result');
+
 // login logout 
 
 Route::get('/login', function () {

@@ -208,7 +208,7 @@ class PubController extends Controller
 
     public function result_check(Request $request){
 
-        $result_check = student::where('serial_no', $request->serial_no)->where('course_id', $request->course_id)->first();
+        $result_check = student::where('serial_no', $request->serial_no)->where('course_id', $request->course_id)->where('grade', '!=', '')->first();
 
         $courses = course::all();
 
@@ -219,6 +219,37 @@ class PubController extends Controller
         }else{
             return redirect()->back()->with('error', 'Result not found!');
         }
+
+
+    }
+    
+
+    public function institution_result_course(){
+
+
+        $view_courses = course::all();
+
+            
+        return view('public_view.institution_result_course', compact('view_courses'));
+
+
+
+    }
+    
+
+    public function institution_result($course_id){
+
+        if (empty($course_id)) {
+            return redirect()->back();
+        }
+
+        $institution_results = student::where('course_id', $course_id)->where('status', 1)->where('grade', '!=', '')->get();
+
+        $institution_result_courses = course::all();
+
+            
+        return view('public_view.institution_result', compact('institution_results', 'institution_result_courses'));
+
 
 
     }
