@@ -305,7 +305,7 @@
                                         document.write(new Date().getFullYear());
                                     </script>
                                     All rights reserved <i class="icon-heart" aria-hidden="true"></i> by <a href="{{ route('home') }}" target="_blank">MediaTTC</a>
-                                    <p>Made by <a href="https://wa.me/+8801734167539" target="_blank" rel="noopener noreferrer">Holy IT</a></p>
+                                    <p>Made by <a href="https://techpartit.net/" target="_blank" rel="noopener noreferrer">Techpart IT</a></p>
                                     <!-- Links of copyright and developer -->
                                 </p>
                             </div>
