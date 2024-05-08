@@ -8,7 +8,7 @@
 
 <div class="site-section mt-5">
     <div class="container mt-5">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
                     <th>Serial NO.</th>
@@ -16,6 +16,7 @@
                     <th>Name</th>
                     <th>Fathers Name</th>
                     <th>Course</th>
+                    <th>Course Duration <br> mm/dd/yyyy</th>
                     <th>Certificate Serial</th>
                     <th>Registration NO.</th>
                     <th>Grade</th>
@@ -29,6 +30,7 @@
                     <th>Name</th>
                     <th>Fathers Name</th>
                     <th>Course</th>
+                    <th>Course Duration <br> mm/dd/yyyy</th>
                     <th>Certificate Serial</th>
                     <th>Registration NO.</th>
                     <th>Grade</th>
@@ -53,6 +55,14 @@
                             @foreach($institution_result_courses as $institution_result_course)
                             @if($institution_result_course->course_id == $institution_result->course_id)
                             {{ $institution_result_course->title }}
+                            @endif
+                            @endforeach
+                        </td>
+                        <td>
+                            @foreach($institution_result_courses as $institution_result_course)
+                            @if($institution_result_course->course_id == $institution_result->course_id)
+                            <input type="date" name="" value="{{ $institution_result_course->start_date }}" disabled id=""><br> to <br>
+                            <input type="date" name="" value="{{ $institution_result_course->end_date }}" disabled id="">
                             @endif
                             @endforeach
                         </td>
