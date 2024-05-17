@@ -16,7 +16,8 @@
                     <th>Name</th>
                     <th>Fathers Name</th>
                     <th>Course</th>
-                    <th>Course Duration <br> mm/dd/yyyy</th>
+                    <th>Course Duration</th>
+                    {{-- <br> mm/dd/yyyy --}}
                     <th>Certificate Serial</th>
                     <th>Registration NO.</th>
                     <th>Grade</th>
@@ -30,7 +31,7 @@
                     <th>Name</th>
                     <th>Fathers Name</th>
                     <th>Course</th>
-                    <th>Course Duration <br> mm/dd/yyyy</th>
+                    <th>Course Duration</th>
                     <th>Certificate Serial</th>
                     <th>Registration NO.</th>
                     <th>Grade</th>
@@ -58,14 +59,15 @@
                             @endif
                             @endforeach
                         </td>
-                        <td>
+                        {{-- <td>
                             @foreach($institution_result_courses as $institution_result_course)
                             @if($institution_result_course->course_id == $institution_result->course_id)
                             <input type="date" name="" value="{{ $institution_result_course->start_date }}" disabled id=""><br> to <br>
                             <input type="date" name="" value="{{ $institution_result_course->end_date }}" disabled id="">
                             @endif
                             @endforeach
-                        </td>
+                        </td> --}}
+                        <td>{{ $institution_result->course_start }} to {{ $institution_result->course_end }}</td>
                         <td>{{ $institution_result->certificate_serial }}</td>
                         <td>{{ $institution_result->regi_no }}</td>
                         <td>{{ $institution_result->grade }}</td>

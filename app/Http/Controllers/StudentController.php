@@ -43,6 +43,8 @@ class StudentController extends Controller
             // "hsc_grade" => "required",
             "gender" => "required",
             "course_id" => "required",
+            "course_start" => "required",
+            "course_end" => "required",
             // "address" => "required",
             // "password"=> "required|min:8|max:16",
             // "document"=> "required|max:10240",
@@ -92,6 +94,8 @@ class StudentController extends Controller
         $student->gender = $request->gender;
         $student->status = 1;
         $student->course_id = $request->course_id;
+        $student->course_start = $request->course_start;
+        $student->course_end = $request->course_end;
         $student->address = $request->address;
         $student->document = $document_name;
         $student->role_id = 3;
@@ -256,6 +260,8 @@ class StudentController extends Controller
         $existing_student->hsc_grade = $request->hsc_grade;
         $existing_student->gender = $request->gender;
         $existing_student->course_id = $request->course_id;
+        $existing_student->course_start = $request->course_start;
+        $existing_student->course_end = $request->course_end;
         $existing_student->address = $request->address;
         $existing_student->role_id = 3;
         

@@ -17,7 +17,7 @@ class SendMail extends Mailable
      * Create a new message instance.
      */
 
-     public $subject, $body;
+    public $subject, $body;
 
     public function __construct($subject, $body)
     {

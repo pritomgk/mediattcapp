@@ -191,6 +191,22 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="course_start"><span class="text-warning">*</span> Course Start</label>
+                    <input type="date" id="course_start" required value="{{ $admin_update_student->course_start }}" name="course_start" class="form-control form-control-lg" />
+                    @error('course_start')
+                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="course_end"><span class="text-warning">*</span> Course End</label>
+                    <input type="date" id="course_end" required value="{{ $admin_update_student->course_end }}" name="course_end" class="form-control form-control-lg" />
+                    @error('course_end')
+                    <p class="mb-0 alert alert-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12 form-group">
                     <div class="col-md-6 form-group">
                         <label for="gender"><span class="text-warning">*</span> Gender</label> <br>

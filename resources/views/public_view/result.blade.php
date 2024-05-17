@@ -38,9 +38,9 @@
             </div>
             <div class="row">
                 <div class="col-md-12 form-group">
-                    <label for="serial_no"> Serial NO.</label>
-                    <input type="text" id="serial_no" name="serial_no" class="form-control form-control-lg" />
-                    @error('serial_no')
+                    <label for="certificate_serial"> Certificate Serial NO.</label>
+                    <input type="text" id="certificate_serial" name="certificate_serial" class="form-control form-control-lg" />
+                    @error('certificate_serial')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
                 </div>
@@ -71,6 +71,66 @@
                         <button class="btn btn-primary" id="download"> Download pdf</button> <br>
                     </div>
                 </p>
+                {{-- <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Serial NO.</th>
+                                    <th>Photo</th>
+                                    <th>Name</th>
+                                    <th>Fathers Name</th>
+                                    <th>Course</th>
+                                    <th>Course Duration</th>
+                                    <th>Certificate Serial</th>
+                                    <th>Registration NO.</th>
+                                    <th>Grade</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Serial NO.</th>
+                                    <th>Photo</th>
+                                    <th>Name</th>
+                                    <th>Fathers Name</th>
+                                    <th>Course</th>
+                                    <th>Course Duration</th>
+                                    <th>Certificate Serial</th>
+                                    <th>Registration NO.</th>
+                                    <th>Grade</th>
+                                    <th>Address</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                    <tr>
+                                        <td>{{ $result_check->serial_no }}</td>
+                                        <td>
+                                            @if($result_check->document != '')
+                                            <a href="{{ asset('storage/uploads/document/'.$result_check->document) }}" download="{{ $result_check->document }}"><img width="118.2px" height="141.8px" src="{{ asset('storage/uploads/document/'.$result_check->document) }}"></a>
+                                            @endif
+                                        </td>
+                                        <td>{{ $result_check->name }}</td>
+                                        <td>{{ $result_check->father_name }}</td>
+                                        <td>
+                                            @foreach($courses as $course)
+                                            @if($course->course_id == $result_check->course_id)
+                                            {{ $course->title }}
+                                            @endif
+                                            @endforeach
+                                        </td>
+                                        <td>{{ $result_check->course_start }} to {{ $result_check->course_end }}</td>
+                                        <td>{{ $result_check->certificate_serial }}</td>
+                                        <td>{{ $result_check->regi_no }}</td>
+                                        <td>{{ $result_check->grade }}</td>
+                                        <td>{{ $result_check->address }}</td>
+                                    </tr>
+                            </tbody>
+                        </table> 
+                        <br> <br>
+                        <button class="btn btn-primary" id="download"> Download pdf</button> <br>
+                    </div>
+                </div> --}}
             </div>
         </div>
         @endif

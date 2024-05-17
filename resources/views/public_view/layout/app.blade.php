@@ -96,7 +96,7 @@
                     console.log(result);
                     console.log(window);
                     var opt = {
-                        margin: 1,
+                        margin: 0.1,
                         filename: 'result.pdf',
                         image: { type: 'jpeg', quality: 0.98 },
                         html2canvas: { scale: 2 },

@@ -28,6 +28,8 @@
                         <th>Name</th>
                         <th>Fathers Name</th>
                         <th>Course</th>
+                        <th>Course Start</th>
+                        <th>Course End</th>
                         <th>Certificate Serial</th>
                         <th>Registration NO.</th>
                         <th>Grade</th>
@@ -43,6 +45,8 @@
                         <th>Name</th>
                         <th>Fathers Name</th>
                         <th>Course</th>
+                        <th>Course Start</th>
+                        <th>Course End</th>
                         <th>Certificate Serial</th>
                         <th>Registration NO.</th>
                         <th>Grade</th>
@@ -72,6 +76,8 @@
                                 @endif
                                 @endforeach
                             </td>
+                            <td>{{ $active_student->course_start }}</td>
+                            <td>{{ $active_student->course_end }}</td>
                             <td>{{ $active_student->certificate_serial }}</td>
                             <td>{{ $active_student->regi_no }}</td>
                             <td>{{ $active_student->grade }}</td>

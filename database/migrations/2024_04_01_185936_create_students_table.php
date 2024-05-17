@@ -37,6 +37,8 @@ return new class extends Migration
             $table->tinyInteger('gender')->nullable();
             $table->unsignedBigInteger('course_id')->nullable();
             $table->foreign('course_id')->references('course_id')->on('courses');
+            $table->string('course_start')->nullable();
+            $table->string('course_end')->nullable();
             $table->string('document')->nullable();
             $table->string('address')->nullable();
             $table->unsignedBigInteger('role_id')->default(3);
