@@ -40,11 +40,11 @@
             </tfoot>
             <tbody>
                 @php
-                    $sl = 1;
+                    $sl = $institution_results->count();
                 @endphp
                 @foreach ($institution_results as $institution_result)
                     <tr>
-                        <td>{{ $institution_result->serial_no }}</td>
+                        <td>{{ $sl }}</td>
                         <td>
                             @if($institution_result->document != '')
                             <a href="{{ asset('storage/uploads/document/'.$institution_result->document) }}" download="{{ $institution_result->document }}"><img width="118.2px" height="141.8px" src="{{ asset('storage/uploads/document/'.$institution_result->document) }}"></a>
@@ -70,11 +70,11 @@
                         <td>{{ $institution_result->course_start }} to {{ $institution_result->course_end }}</td>
                         <td>{{ $institution_result->certificate_serial }}</td>
                         <td>{{ $institution_result->regi_no }}</td>
-                        <td>{{ $institution_result->grade }}</td>
+                        <td class="text-uppercase">{{ $institution_result->grade }}</td>
                         <td>{{ $institution_result->address }}</td>
                     </tr>
                     @php
-                        $sl++;
+                        $sl--;
                     @endphp
                 @endforeach
                 {{-- <tr>

@@ -244,7 +244,7 @@ class PubController extends Controller
             return redirect()->back();
         }
 
-        $institution_results = student::where('course_id', $course_id)->where('status', 1)->where('grade', '!=', '')->orderBy('course_start')->get();
+        $institution_results = student::where('course_id', $course_id)->where('status', 1)->where('grade', '!=', '')->orderByDesc('course_start')->get();
 
         $institution_result_courses = course::all();
 

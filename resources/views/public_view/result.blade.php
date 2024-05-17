@@ -64,9 +64,9 @@
                     <div class="mt-3">
                         <b>Name :</b> {{ $result_check->name }} <br>
                         <b>Father's Name :</b> {{ $result_check->father_name }} <br>
-                        <b>Serial NO. :</b> {{ $result_check->serial_no }} <br>
+                        <b>Certificate Serial NO. :</b> {{ $result_check->certificate_serial }} <br>
                         <b>Registration NO. :</b> {{ $result_check->regi_no }} <br>
-                        <b>Grade :</b> {{ $result_check->grade }} <br>
+                        <b>Grade :</b> <span class="text-uppercase">{{ $result_check->grade }}</span> <br>
                         <b>Address :</b> {{ $result_check->address }} <br> <br>
                         <button class="btn btn-primary" id="download"> Download pdf</button> <br>
                     </div>
