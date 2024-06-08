@@ -118,7 +118,7 @@ class StudentController extends Controller
 
     public function all_active_students(){
         
-        $all_active_students = student::where('status', 1)->get();
+        $all_active_students = student::where('status', 1)->orderByDesc('course_start')->get();
 
         $active_student_courses = course::all();
         
@@ -276,7 +276,7 @@ class StudentController extends Controller
     
     public function view_course_students($course_id){
         
-        $view_course_students = student::where('course_id', $course_id)->get();
+        $view_course_students = student::where('course_id', $course_id)->orderByDesc('course_start')->get();
 
         $course_student_courses = course::all();
         

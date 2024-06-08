@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="site-section mt-5">
-    <div class="container mt-5" id="result">
+    <div class="container mt-5 font-weight-bold text-dark" id="result">
         <form action="{{ route('result_check') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
@@ -24,9 +24,9 @@
             
             <div class="row">
                 <div class="col-md-12 form-group">
-                    <label for="course_id"><span class="text-warning">*</span> Select Course</label>
-                    <select name="course_id" id="course_id" required class="form-control form-control-lg">
-                        <option value="">Choose..</option>
+                    <label for="course_id"><span class="text-warning">*</span> Select Course </label>
+                    <select name="course_id" id="course_id" required class="form-control form-control-lg border border-dark">
+                        <option value="">Course Name..</option>
                         @foreach ($courses as $course)
                             <option value="{{ $course->course_id }}">{{ $course->title }}</option>
                         @endforeach
@@ -38,8 +38,8 @@
             </div>
             <div class="row">
                 <div class="col-md-12 form-group">
-                    <label for="certificate_serial"> Certificate Serial NO.</label>
-                    <input type="text" id="certificate_serial" name="certificate_serial" class="form-control form-control-lg" />
+                    <label for="certificate_serial"><span class="text-warning">*</span> Certificate Serial NO.</label>
+                    <input type="text" id="certificate_serial" name="certificate_serial" class="form-control form-control-lg border border-dark" placeholder="Serial No..." />
                     @error('certificate_serial')
                     <p class="mb-0 alert alert-danger">{{ $message }}</p>
                     @enderror
@@ -68,7 +68,8 @@
                         <b>Registration NO. :</b> {{ $result_check->regi_no }} <br>
                         <b>Grade :</b> <span class="text-uppercase">{{ $result_check->grade }}</span> <br>
                         <b>Address :</b> {{ $result_check->address }} <br> <br>
-                        <button class="btn btn-primary" id="download"> Download pdf</button> <br>
+                        <button class="btn btn-primary mx-3" id="download"> Download pdf </button> 
+                        <button class="btn btn-primary mx-3" onclick="printResult()"> Print </button> <br>
                     </div>
                 </p>
                 {{-- <div class="card-body">

@@ -23,7 +23,7 @@
                 <thead>
                     <tr>
                         <th>Sl</th>
-                        <th>Serial NO.</th>
+                        {{-- <th>Serial NO.</th> --}}
                         <th>Photo</th>
                         <th>Name</th>
                         <th>Fathers Name</th>
@@ -40,7 +40,7 @@
                 <tfoot>
                     <tr>
                         <th>Sl</th>
-                        <th>Serial NO.</th>
+                        {{-- <th>Serial NO.</th> --}}
                         <th>Photo</th>
                         <th>Name</th>
                         <th>Fathers Name</th>
@@ -56,12 +56,12 @@
                 </tfoot>
                 <tbody>
                     @php
-                        $sl = 1;
+                        $sl = $all_active_students->count();
                     @endphp
                     @foreach ($all_active_students as $active_student)
                         <tr>
                             <td>{{ $sl }}</td>
-                            <td>{{ $active_student->serial_no }}</td>
+                            {{-- <td>{{ $active_student->serial_no }}</td> --}}
                             <td>
                                 @if($active_student->document != '')
                                 <a href="{{ asset('storage/uploads/document/'.$active_student->document) }}" download="{{ $active_student->document }}"><img width="118.2px" height="141.8px" src="{{ asset('storage/uploads/document/'.$active_student->document) }}"></a>
@@ -91,7 +91,7 @@
                             </td>
                         </tr>
                         @php
-                            $sl++;
+                            $sl--;
                         @endphp
                     @endforeach
                     {{-- <tr>

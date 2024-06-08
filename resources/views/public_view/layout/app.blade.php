@@ -28,6 +28,25 @@
         <!-- Favicon -->
         <link rel="shortcut icon" href="{{ asset('admin_assets/img/favicon.ico') }}" type="image/x-icon">
 
+        {{-- custom css  --}}
+
+        <style>
+            @media print {
+                /* Sets print view with media query */
+
+                /* body * { */
+                    /* display: none; */
+                /* } */
+                /* Sets body and elements in it to not display */
+            
+                /* #result, #result * {
+                    display: block;
+                } */
+                /* Sets print area element and all its content to display */
+            }
+
+        </style>
+
 
         <script nonce="e8fac500-d639-43e1-8c24-3665ee4fc2bd">
             try {
@@ -113,7 +132,7 @@
 
     </head>
 
-    <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" id="body">
         <div class="site-wrap">
             <div class="site-mobile-menu site-navbar-target">
                 <div class="site-mobile-menu-header">
@@ -350,6 +369,21 @@
 
             gtag("config", "UA-23581568-13");
         </script>
+
+        <script type="text/javascript">
+
+            // document.getElementById('printBtn').addEventListener('click', () => { window.print() });
+            // Prints area to which class was assigned only
+            function printResult(){
+                var body = document.getElementById('body').innerHTML;
+                var result = document.getElementById('result').innerHTML;
+                document.getElementById('body').innerHTML = result;
+                window.print();
+                document.getElementById('body').innerHTML = body;
+            }
+
+        </script>
+
         <script
             defer
             src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
