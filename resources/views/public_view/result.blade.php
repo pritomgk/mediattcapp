@@ -57,7 +57,11 @@
             <div class="col-12 text-center mt-3">
                 <p class="mt-3">
                     @if (!empty($result_check->document))
+                    @if (file_exists(asset('uploads/document/'.$result_check->document)))
                         <div class="mt-3 mb-5"><img width="197px" height="236.333333333px" src="{{ asset('uploads/document/'.$result_check->document) }}"></div>
+                        @else
+                        <div class="mt-3 mb-5"><img width="197px" height="236.333333333px" src="{{ asset('storage/uploads/document/'.$result_check->document) }}"></div>
+                    @endif
                         @else
                         <b class="border border-primary">No image..</b>
                     @endif
