@@ -4,25 +4,47 @@
 @endsection
 @section('content')
 <div class="hero-slide owl-carousel site-blocks-cover">
-    <div class="intro-section" style="background-image: url({{ asset('pv_assets/images/hero_1.jpg') }});">
+    <div class="intro-section" style="background-image: url({{ asset('pv_assets/images/Banner.jpg') }});">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
-                    <h1>Academics University</h1>
+                    <h1>MediaTTC</h1>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="intro-section" style="background-image: url({{ asset('pv_assets/images/hero_1.jpg') }});">
+    <div class="intro-section" style="background-image: url({{ asset('pv_assets/images/Banner.jpg') }});">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
-                    <h1>You Can Learn Anything</h1>
+                    <h1>MediaTTC</h1>
                 </div>
             </div>
         </div>
     </div>
+    
+
+    <div class="intro-section" style="background-image: url({{ asset('pv_assets/images/Banner.jpg') }});">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
+                    <h1>MediaTTC</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="intro-section" style="background-image: url({{ asset('pv_assets/images/Banner.jpg') }});">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
+                    <h1>Media TTC</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 
@@ -96,7 +118,7 @@
                     @foreach ($courses_latest as $course_latest)
                         <div class="course-1-item">
                             <figure class="thumnail">
-                                <a href="{{ route('single_course', ['course_id' => $course_latest->course_id]) }}"><img src="{{ asset('storage/uploads/courses/'.$course_latest->content) }}" alt="Image" class="img-fluid" /></a>
+                                <a href="{{ route('single_course', ['course_id' => $course_latest->course_id]) }}"><img style="height: 200px;" src="{{ asset('storage/uploads/courses/'.$course_latest->content) }}" alt="Image" class="img-fluid" /></a>
                                 <div class="price">{{ $course_latest->price }}</div>
                                 {{-- <div class="category"><h3>Diploma in Electric & Electronic Technology</h3></div> --}}
                             </figure>
@@ -125,13 +147,91 @@
     </div>
 </div>
 
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5 justify-content-center text-center">
+            <div class="col-lg-6 mb-5">
+                <h2 class="section-title-underline mb-3">
+                    <span>Gallery</span>
+                </h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, id?</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+
+                <div class="owl-slide-3 owl-carousel">
+
+                        <div class="course-1-item">
+                            <figure class="thumnail">
+                                    <img height="200px" style="height: 200px !important;" src="{{ asset('storage/uploads/site_elements/01.jpg') }}" alt="Image" class="img-fluid" />
+                            </figure>
+                        </div>
+                        <div class="course-1-item">
+                            <figure class="thumnail">
+                                    <img height="200px" style="height: 200px !important;" src="{{ asset('storage/uploads/site_elements/02.jpg') }}" alt="Image" class="img-fluid" />
+                            </figure>
+                        </div>
+                        <div class="course-1-item">
+                            <figure class="thumnail">
+                                    <img height="200px" style="height: 200px !important;" src="{{ asset('storage/uploads/site_elements/03.jpg') }}" alt="Image" class="img-fluid" />
+                            </figure>
+                        </div>
+                        <div class="course-1-item">
+                            <figure class="thumnail">
+                                    <img height="200px" style="height: 200px !important;" src="{{ asset('storage/uploads/site_elements/04.jpg') }}" alt="Image" class="img-fluid" />
+                            </figure>
+                        </div>
+                        <div class="course-1-item">
+                            <figure class="thumnail">
+                                    <img height="200px" style="height: 200px !important;" src="{{ asset('storage/uploads/site_elements/05.jpg') }}" alt="Image" class="img-fluid" />
+                            </figure>
+                        </div>
+                        <div class="course-1-item">
+                            <figure class="thumnail">
+                                    <img height="200px" style="height: 200px !important;" src="{{ asset('storage/uploads/site_elements/06.jpg') }}" alt="Image" class="img-fluid" />
+                            </figure>
+                        </div>
+                        <div class="course-1-item">
+                            <figure class="thumnail">
+                                    <img height="200px" style="height: 200px !important;" src="{{ asset('storage/uploads/site_elements/07.jpg') }}" alt="Image" class="img-fluid" />
+                            </figure>
+                        </div>
+                        <div class="course-1-item">
+                            <figure class="thumnail">
+                                    <img height="200px" style="height: 200px !important;" src="{{ asset('storage/uploads/site_elements/08.jpg') }}" alt="Image" class="img-fluid" />
+                            </figure>
+                        </div>
+                        <div class="course-1-item">
+                            <figure class="thumnail">
+                                    <img height="200px" style="height: 200px !important;" src="{{ asset('storage/uploads/site_elements/09.jpg') }}" alt="Image" class="img-fluid" />
+                            </figure>
+                        </div>
+                        <div class="course-1-item">
+                            <figure class="thumnail">
+                                    <img height="200px" style="height: 200px !important;" src="{{ asset('storage/uploads/site_elements/10.jpg') }}" alt="Image" class="img-fluid" />
+                            </figure>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
 <div class="section-bg style-1" style="background-image: url('images/about_1.jpg');">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4 text-center">
+                <img height="400px" src="{{ asset('pv_assets/images/Director.jpg') }}" alt="Director">
                 <h2 class="section-title-underline style-2">
-                    <span>About Our University</span>
+                    <span>Rebeka Chowdhury</span>
                 </h2>
+                <h4 class="text-white style-2">
+                    <span>Director, MTTI</span>
+                </h4>
             </div>
             <div class="col-lg-8">
                 <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem nesciunt quaerat ad reiciendis perferendis voluptate fugiat sunt fuga error totam.</p>
