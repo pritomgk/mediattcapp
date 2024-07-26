@@ -230,6 +230,11 @@
                 <div class="col-md-12 form-group">
                     <label for="course_id"><span class="text-warning">*</span> Select Course</label>
                     <select name="course_id" id="course_id" required class="form-control form-control-lg">
+                        @foreach ($courses as $course)
+                            @if ($course_id == $course->course_id)
+                                <option selected value="{{ $course->course_id }}">{{ $course->title }}</option>
+                            @endif
+                        @endforeach
                         <option value="">Choose..</option>
                         @foreach ($courses as $course)
                             <option value="{{ $course->course_id }}">{{ $course->title }}</option>

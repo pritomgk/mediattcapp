@@ -3,101 +3,30 @@
     MediaTTC
 @endsection
 @section('content')
+
+{{-- <div class="hero-slide owl-carousel site-blocks-cover">
+    <div class="intro-section" style="background-image: url({{ asset('pv_assets/images/Banner.jpg') }}); background-size: cover; background-repeat: no-repeat;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
+                    <h1>MediaTTC</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --}}
+
 <div class="hero-slide owl-carousel site-blocks-cover">
-    <div class="intro-section" style="background-image: url({{ asset('pv_assets/images/Banner.jpg') }});">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
-                    <h1>MediaTTC</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="intro-section" style="background-image: url({{ asset('pv_assets/images/Banner.jpg') }});">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
-                    <h1>MediaTTC</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-
-    <div class="intro-section" style="background-image: url({{ asset('pv_assets/images/Banner.jpg') }});">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
-                    <h1>MediaTTC</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="intro-section" style="background-image: url({{ asset('pv_assets/images/Banner.jpg') }});">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
-                    <h1>Media TTC</h1>
-                </div>
-            </div>
+    <div class="container col-lg-12 mx-auto text-center align-items-center" data-aos="fade-up">
+        <div class="row align-items-center">
+            {{-- style="margin-top: 40px;" --}}
+            <img class="mt-4 mb-4" width="100%" src="{{ asset('pv_assets/images/Banner.jpg') }}" alt="banner image">
         </div>
     </div>
 
 </div>
 
 
-{{-- 
-<div class="site-section">
-    <div class="container">
-        <div class="row mb-5 justify-content-center text-center">
-            <div class="col-lg-4 mb-5">
-                <h2 class="section-title-underline mb-5">
-                    <span>Why Academics Works</span>
-                </h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                <div class="feature-1 border">
-                    <div class="icon-wrapper bg-primary">
-                        <span class="flaticon-mortarboard text-white"></span>
-                    </div>
-                    <div class="feature-1-content">
-                        <h2>Personalize Learning</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit morbi hendrerit elit</p>
-                        <p><a href="#" class="btn btn-primary px-4 rounded-0">Learn More</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                <div class="feature-1 border">
-                    <div class="icon-wrapper bg-primary">
-                        <span class="flaticon-school-material text-white"></span>
-                    </div>
-                    <div class="feature-1-content">
-                        <h2>Trusted Courses</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit morbi hendrerit elit</p>
-                        <p><a href="#" class="btn btn-primary px-4 rounded-0">Learn More</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                <div class="feature-1 border">
-                    <div class="icon-wrapper bg-primary">
-                        <span class="flaticon-library text-white"></span>
-                    </div>
-                    <div class="feature-1-content">
-                        <h2>Tools for Students</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit morbi hendrerit elit</p>
-                        <p><a href="#" class="btn btn-primary px-4 rounded-0">Learn More</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
 
 <div class="site-section">
     <div class="container">
@@ -163,12 +92,16 @@
 
                 <div class="owl-slide-3 owl-carousel">
 
+                    @foreach ($galleries as $gallery)
                         <div class="course-1-item">
                             <figure class="thumnail">
-                                    <img height="200px" style="height: 200px !important;" src="{{ asset('storage/uploads/site_elements/01.jpg') }}" alt="Image" class="img-fluid" />
+                                    <img height="200px" style="height: 200px !important;" src="{{ asset('storage/uploads/gallery/'.$gallery->document) }}" alt="Image" class="img-fluid" />
                             </figure>
                         </div>
-                        <div class="course-1-item">
+                    @endforeach
+                        
+
+                        {{-- <div class="course-1-item">
                             <figure class="thumnail">
                                     <img height="200px" style="height: 200px !important;" src="{{ asset('storage/uploads/site_elements/02.jpg') }}" alt="Image" class="img-fluid" />
                             </figure>
@@ -210,10 +143,13 @@
                         </div>
                         <div class="course-1-item">
                             <figure class="thumnail">
-                                    <img height="200px" style="height: 200px !important;" src="{{ asset('storage/uploads/site_elements/10.jpg') }}" alt="Image" class="img-fluid" />
+                                    <img height="170px" style="height: 170px !important;" src="{{ asset('storage/uploads/site_elements/10.jpg') }}" alt="Image" class="img-fluid" />
                             </figure>
-                        </div>
+                        </div> --}}
                     
+                </div>
+                <div class="mx-auto text-center">
+                    <a href="{{ route('all_galleries_document') }}" class="btn btn-primary">See Gallery</a>
                 </div>
             </div>
         </div>
@@ -225,7 +161,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 text-center">
-                <img height="400px" src="{{ asset('pv_assets/images/Director.jpg') }}" alt="Director">
+                <img height="200px" src="{{ asset('pv_assets/images/Director.jpg') }}" alt="Director">
                 <h2 class="section-title-underline style-2">
                     <span>Rebeka Chowdhury</span>
                 </h2>

@@ -18,6 +18,14 @@ class StudentController extends Controller
         return view('admin_view.common.add_students_manually', compact('courses'));
 
     }
+    
+    public function add_students_course_manually($course_id){
+        
+        $courses = course::all();
+        
+        return view('admin_view.common.add_students_manually', compact('courses', 'course_id'));
+
+    }
 
     public function add_students_manually_info(Request $request){
 

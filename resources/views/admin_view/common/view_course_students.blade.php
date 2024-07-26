@@ -76,7 +76,7 @@
                             </td>
                             <td>{{ $view_course_student->certificate_serial }}</td>
                             <td>{{ $view_course_student->regi_no }}</td>
-                            <td>{{ $view_course_student->grade }}</td>
+                            <td><span class="text-uppercase">{{ $view_course_student->grade }}</span></td>
                             <td>{{ $view_course_student->address }}</td>
                             <td>
                                 @if($view_course_student->status == 1)

@@ -72,11 +72,13 @@
                             <td>{{ $course->end_time }}</td>
                             <td>{{ $course->description }}</td>
                             <td>{{ $course->price }}</td>
-                            <td>{{ $course->content }}</td>
+                            <td><img width="70px" src="{{ asset('storage/uploads/courses/'.$course->content) }}" alt="course image"></td>
                             <td>{{ $course->create_time }}</td>
                             <td>{{ $course->update_time }}</td>
                             <td>
                                 <a href="{{ route('view_course_students', ['course_id'=>$course->course_id]) }}" class="btn btn-sm btn-primary">View Students</a>
+                                <br><br>
+                                <a href="{{ route('add_students_course_manually', ['course_id'=>$course->course_id]) }}" class="btn btn-sm btn-info">Add Students</a>
                                 <br><br>
                                 <a href="{{ route('update_courses', ['course_id'=>$course->course_id]) }}" class="btn btn-sm btn-warning">Update</a>
                                 <br><br>

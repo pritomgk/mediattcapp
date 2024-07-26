@@ -185,28 +185,7 @@
                                             <li><a href="{{ route('single_course', ['course_id'=>$header_course->course_id]) }}">{{ $header_course->title }}</a></li>
                                                 
                                             @endforeach
-                                            {{-- <li><a href="teachers.php">Diploma in Computer Science & ICT</a></li>
-                                            <li><a href="about.php">Certificate in Computer Science & Application</a></li>
-                                            <li><a href="teachers.php">Diploma in Computer Hardware, Software & Troubleshooting</a></li>
-                                            <li><a href="about.php">Diploma in Graphics Design</a></li>
-                                            <li><a href="teachers.php">Diploma in Multilingual Secretarial Science (Data Entry/Typing)</a></li>
-                                            <li><a href="about.php">Certificate in Library & Information Science</a></li>
-                                            <li><a href="teachers.php">Diploma in Electric & Electronic Technology</a></li>
-                                            <li><a href="about.php">Diploma in Dress Making & Tailoring Technology</a></li>
-                                            <li><a href="teachers.php">Web Design & Development</a></li>
-                                            <li><a href="about.php">Diploma in Land Surveyor Technology Course (Aminship)</a></li>
-                                            <li><a href="about.php">Diploma In Auto CAD</a></li>
-                                            <li><a href="about.php">Diplolma In Welding Technology</a></li>
-                                            <li><a href="about.php">Diplolma In Sprayer Mechanic Technology</a></li>
-                                            <li><a href="about.php">Certificate/Diploma Course in Plumbing, Refrigeration & Aircondition</a></li>
-                                            <li><a href="about.php">Diploma in Mason, Steel Fixture, Carpenter, Sattering, Carpenter & Painter</a></li>
-                                            <li><a href="about.php">Diploma in Food Processing & Preservation Technology</a></li>
-                                            <li><a href="about.php">Diploma in Fish Culture Technology</a></li>
-                                            <li><a href="about.php">Certificate in Rural Agriculture Development</a></li>
-                                            <li><a href="about.php">Diploma in Livestock & Poultry Technology</a></li>
-                                            <li><a href="about.php">Certificate in Arts & Culture (Professional)</a></li>
-                                            <li><a href="about.php">Diploma in Medical Assistant</a></li>
-                                            <li><a href="about.php">Diploma in Medical Professional Course for Rural Doctors on (Allopathy)</a></li> --}}
+                                            
                                         </ul>
                                     </li>
                                     <li>
@@ -261,11 +240,12 @@
 
                         <div class="ml-auto">
                             <div class="social-wrap">
+
                                 <a target="_blank" href="https://www.facebook.com/MediaTechTrainingCenter"><span class="icon-facebook"></span></a>
                                 <a target="_blank" href="https://www.youtube.com/@mediattc5387"><span class="icon-youtube"></span></a>
-                                <a href="#"><span class="icon-linkedin"></span></a>
-
+                                <a target="_blank" href="https://t.me/hrkhan76"><span class="icon-telegram"></span></a>
                                 <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a>
+
                             </div>
                         </div>
                     </div>
@@ -325,11 +305,13 @@
                                     </script>
                                     All rights reserved <i class="icon-heart" aria-hidden="true"></i> by <a href="{{ route('home') }}" target="_blank">MediaTTC</a>
                                     <p>Made by <a href="https://techpartit.net/" target="_blank" rel="noopener noreferrer">Techpart IT</a></p>
+                                    {{-- <p>Made by <a href="https://holyit.org/" target="_blank" rel="noopener noreferrer">Holy IT</a></p> --}}
                                     <!-- Links of copyright and developer -->
                                 </p>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\SendMail;
 use App\Models\course;
+use App\Models\gallery;
 use App\Models\student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -15,7 +16,8 @@ class PubController extends Controller
     public function home(){
 
         $courses_latest = course::orderBy('create_time', 'desc')->take(6)->get();
-        return view('public_view.home', compact('courses_latest'));
+        $galleries = gallery::all();
+        return view('public_view.home', compact('courses_latest', 'galleries'));
 
     }
     

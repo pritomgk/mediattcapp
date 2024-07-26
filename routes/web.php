@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\LoginoutController;
 use App\Http\Controllers\PubController;
 use App\Http\Controllers\StudentController;
@@ -51,6 +52,10 @@ Route::get('/institution_result_course', [PubController::class, 'institution_res
 
 Route::get('/institution_result/{course_id}', [PubController::class, 'institution_result']
 )->name('institution_result');
+
+Route::get('/all_galleries_document', [GalleryController::class, 'all_galleries_document']
+)->name('all_galleries_document');
+
 
 // login logout 
 
@@ -124,6 +129,10 @@ Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
     )->name('add_students_manually');
     
     
+    Route::get('/add_students_course_manually/{course_id}', [StudentController::class, 'add_students_course_manually']
+    )->name('add_students_course_manually');
+    
+    
     Route::post('/add_students_manually_info', [StudentController::class, 'add_students_manually_info']
     )->name('add_students_manually_info');
     
@@ -157,6 +166,31 @@ Route::prefix('/admin_panel')->middleware('admin_teacher')->group(function () {
     
     Route::get('/view_course_students/{course_id}', [StudentController::class, 'view_course_students']
     )->name('view_course_students');
+    
+    
+    
+    // admin gallery routes 
+    
+    Route::get('/all_admin_document', [GalleryController::class, 'all_admin_document']
+    )->name('all_admin_document');
+    
+    
+    Route::get('/add_document', [GalleryController::class, 'add_document']
+    )->name('add_document');
+    
+    Route::post('/add_document_info', [GalleryController::class, 'add_document_info']
+    )->name('add_document_info');
+
+    Route::get('/update_document/{doc_id}', [GalleryController::class, 'update_document']
+    )->name('update_document');
+    
+        
+    Route::post('/update_document_info', [GalleryController::class, 'update_document_info']
+    )->name('update_document_info');
+
+    Route::get('/delete_document/{doc_id}', [GalleryController::class, 'delete_document']
+    )->name('delete_document');
+        
     
     
     

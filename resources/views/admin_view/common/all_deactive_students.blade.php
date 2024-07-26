@@ -69,7 +69,7 @@
                             </td>
                             <td>{{ $deactive_student->certificate_serial }}</td>
                             <td>{{ $deactive_student->regi_no }}</td>
-                            <td>{{ $deactive_student->grade }}</td>
+                            <td><span class="text-uppercase">{{ $deactive_student->grade }}</span></td>
                             <td>{{ $deactive_student->address }}</td>
                             <td>
                                 @if($deactive_student->document != '')

@@ -80,7 +80,7 @@
                             <td>{{ $active_student->course_end }}</td>
                             <td>{{ $active_student->certificate_serial }}</td>
                             <td>{{ $active_student->regi_no }}</td>
-                            <td>{{ $active_student->grade }}</td>
+                            <td><span class="text-uppercase">{{ $active_student->grade }}</span></td>
                             <td>{{ $active_student->address }}</td>
                             <td>
                                 <a href="{{ route('admin_update_student', ['student_id'=>$active_student->student_id]) }}" class="btn btn-sm btn-warning">Update</a>
